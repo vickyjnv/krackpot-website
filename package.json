@@ -1,0 +1,23 @@
+{
+  "name": "krackpot-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass dist/style/style.scss dist/style/style.css -w",
+    "compile:sass_admin": "node-sass style/admin-style.scss style/admin-style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suyashpradhan/krackpot-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suyashpradhan/krackpot-website/issues"
+  },
+  "homepage": "https://github.com/suyashpradhan/krackpot-website#readme",
+  "dependencies": {
+    "npm-install-all": "^1.1.21"
+  }
+}
