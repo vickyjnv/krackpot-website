@@ -13,26 +13,21 @@
 
 <body>
 
-    <div class="hero-section about-section">
+    <div class=" about-section">
         <div class="side_menu">
-            <div class="row">
-                <div class="col-4">
-                    <div class="burger_box">
-                        <div class="menu-icon-container">
-                            <a href="#" class="menu-icon js-menu_toggle closed">
-                                <span class="menu-icon_box">
-                                    <span class="menu-icon_line menu-icon_line--1"></span>
-                                    <span class="menu-icon_line menu-icon_line--2"></span>
-                                    <span class="menu-icon_line menu-icon_line--3"></span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <h1>S</h1>
+            <div class="burger_box _inner">
+                <div class="menu-icon-container">
+                    <a href="#" class="menu-icon js-menu_toggle closed">
+                        <span class="menu-icon_box">
+                            <span class="menu-icon_line menu-icon_line--1"></span>
+                            <span class="menu-icon_line menu-icon_line--2"></span>
+                            <span class="menu-icon_line menu-icon_line--3"></span>
+                        </span>
+                    </a>
                 </div>
             </div>
+            <img src="images/logo.png" alt="krackpot-logo" class="top-nav-logo">
+
             <ul class="list_load">
                 <li class="list-item"><a href="#">Menu <i class="fas fa-angle-down"></i></a></li>
                 <li class="list-item"><a href="#">About Us</a></li>
@@ -42,11 +37,81 @@
                 <li class="list-item"><a href="#">Contact Us</a></li>
             </ul>
         </div>
+        <div class="container">
+            <div class="about-section-main">
+                <div class="row pt-5">
+                    <div class="col-lg-12">
+                        <div id="about-us-carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#about-us-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#about-us-carousel" data-slide-to="1"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="offset-1 col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-6">
+                                            <div class="about-section-info animated fadeInLeft">
+                                                <h1 class="about-section-text  _title">
+                                                    Design & Digital<br>
+                                                    Agency providing
+                                                </h1>
+                                                <h3 class="about-section-text  _subtitle">
+                                                    end to end creative &<br>
+                                                    marketing solutions
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-1">
+                                            <div class="about-section-info animated fadeInRight right">
+                                                <img src="images/info.svg" alt="about" class="about-section-img">
+                                                <h1 class="about-section-head">About</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="about-section-info second-section animated fadeInRight">
+                                        <p class="about-section-description">Krackpot Design and Digital Solutions helps
+                                            businesses establish growth
+                                            through simplified user interaction designs. In this multi-channel world,
+                                            companies need innovative ideas to connect with their audience; that’s where
+                                            we can help you address almost all issues in Design domain.
+                                            <br><br>
+                                            We build digital products and experiences that create lasting value and
+                                            sustainable growth for modern businesses. With strong Design and Digital
+                                            DNA, Krackpot commits itself to amaze you with Creative Digital ideas
+                                            fullfilling your Digital Marketing needs. Be it Website, Mobile App or
+                                            Social Media, we’ve got it all. Our creative digital products have proved to
+                                            deliver performance over the years and we promise to continue to do so.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#about-us-carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#about-us-carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="script/custom.js"></script>
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>
