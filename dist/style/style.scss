@@ -6,11 +6,15 @@ $colors: (
   "color-one": #ed1c24,
   "color-two": #fbb836,
   "color-three": #f4774a,
+  "color-four": #2d8ac5,
+  "color-five": #ef444b,
   "color-sidebar": #626262,
   "color-sidebar-border": #999,
   "color-sidebar-hover": #4d4d4d,
   "color-white": #fff,
-  "color-offwhite": #f8f8ff
+  "color-offwhite": #f8f8ff,
+  "color-clients-bg": #efefef,
+  "color-clients-border": #ccc
 );
 
 //Default Styling
@@ -58,6 +62,13 @@ body {
 .navbar-services {
   background: rgb(245, 133, 92);
   /* background: rgba(255, 255, 255, 0.1); */
+}
+
+.navbar-clients {
+  background: #246e9d;
+}
+.navbar-contact {
+  background: #bf363c;
 }
 
 a,
@@ -263,6 +274,46 @@ a,
   background-color: map-get($map: $colors, $key: color-three) !important;
 }
 
+.clients-section {
+  background-color: map-get($map: $colors, $key: color-four) !important;
+}
+
+.contact-section {
+  background-color: map-get($map: $colors, $key: color-five) !important;
+}
+
+.section-info-clients {
+  height: calc(100vh - 4rem);
+  background-color: map-get($map: $colors, $key: color-clients-bg);
+
+  .clients-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 0;
+
+    .clients-row-inner-columns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid map-get($map: $colors, $key: color-clients-border);
+      border-bottom: 1px solid
+        map-get($map: $colors, $key: color-clients-border);
+
+      &:nth-child(7n) {
+        border-right: none;
+      }
+
+      .clients-img {
+        max-width: 10rem;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
 .section-info {
   display: flex;
   flex-direction: column;
@@ -280,13 +331,18 @@ a,
   ._title {
     font-size: 3rem;
     padding: 0 0 1rem 0 !important;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   ._subtitle {
     font-size: 2rem;
     color: map-get($map: $colors, $key: color-offwhite);
     font-weight: 300;
+  }
+
+  .section-info-text-sub {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .section-info-img {
@@ -322,6 +378,10 @@ a,
   .delay-1 {
     animation-delay: 1.3s !important;
   }
+}
+
+.clients-row-height {
+  height: calc(100vh-4rem);
 }
 
 //Carousel
@@ -422,6 +482,10 @@ a,
     display: block !important;
     width: 100%;
     height: 100vh;
+  }
+
+  .section-info-clients {
+    overflow-x: auto !important;
   }
 }
 
@@ -590,6 +654,10 @@ a,
         font-size: 1.1rem;
         text-decoration: none;
         box-shadow: 3px 3px #4e494938;
+      }
+
+      .content-five-link {
+        background: #246e9d;
       }
 
       .content-head {
