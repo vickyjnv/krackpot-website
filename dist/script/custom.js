@@ -131,3 +131,17 @@ $(document).ready(function () {
     });
 
 });
+
+
+/*Carousel Script*/
+
+$(document).ready(function () {
+    $(".carousel-control-next").click(function () {
+        $(".clients-slider").slick('unslick');
+        $(".clients-slider").slick();
+    })
+    $(".carousel-control-prev").click(function () {
+        $(".clients-slider").slick();
+    })
+    $('.clients-slider').slick({});
+});

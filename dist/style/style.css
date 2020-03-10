@@ -9,10 +9,29 @@ html,
 body {
   font-size: 16px;
   font-weight: 300;
-  line-height: 1; }
+  line-height: 1;
+  height: 100%; }
 
 .section-default-styling {
   height: calc(100vh - 4rem); }
+
+.portfolio-section-list-main .clients-img {
+  width: 10rem;
+  height: auto; }
+
+.portfolio-section-list-main .clients-description {
+  color: #626262;
+  line-height: 1.5;
+  margin: 0 0 2rem 0;
+  text-align: justify;
+  width: 90%;
+  font-size: .9rem; }
+
+.portfolio-section-list-main .work-text {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+  color: #4d4d4d; }
 
 .hero-section {
   height: 100vh;
@@ -33,14 +52,19 @@ body {
   padding: 1rem 0 !important; }
 
 .navbar-services {
-  background: #f5855c;
-  /* background: rgba(255, 255, 255, 0.1); */ }
+  background: #f5855c; }
 
 .navbar-clients {
   background: #246e9d; }
 
 .navbar-contact {
   background: #bf363c; }
+
+.navbar-portfolio {
+  background-color: #2496c1; }
+
+.navbar-portfolio-list {
+  background-color: #c1c1c1; }
 
 a,
 .side_menu {
@@ -140,7 +164,8 @@ a,
   display: none;
   list-style: none;
   padding: 0;
-  height: 96vh;
+  height: 100vh;
+  margin: 0;
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -219,6 +244,12 @@ a,
 .contact-section {
   background-color: #ef444b !important; }
 
+.portfolio-section {
+  background-color: #2dbcf1 !important; }
+
+.portfolio-section-list {
+  background-color: #f1f1f1 !important; }
+
 .section-info-clients {
   height: calc(100vh - 4rem);
   background-color: #efefef; }
@@ -233,19 +264,33 @@ a,
       justify-content: center;
       align-items: center;
       border-right: 1px solid #ccc;
-      border-bottom: 1px solid #ccc; }
-      .section-info-clients .clients-row .clients-row-inner-columns:nth-child(7n) {
-        border-right: none; }
+      border-bottom: 1px solid #ccc;
+      /*  &:nth-child(7n) {
+        border-right: none;
+      } */ }
       .section-info-clients .clients-row .clients-row-inner-columns .clients-img {
         max-width: 10rem;
         width: 100%;
         height: auto; }
 
+.section-info-start {
+  justify-content: center !important;
+  /* padding: 3rem 0 0 0; */
+  height: 100%; }
+  .section-info-start #clients-slider .clients-slider-img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 40px; }
+
 .section-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 4rem); }
+  height: calc(100vh - 4rem);
+  overflow: hidden; }
   .section-info .section-info-text {
     color: #fff;
     text-align: left;
@@ -260,9 +305,14 @@ a,
     font-size: 2rem;
     color: #f8f8ff;
     font-weight: 300; }
-  .section-info .section-info-text-sub {
-    font-size: 1rem;
-    line-height: 1.5; }
+  .section-info .contact-details {
+    margin: 0 0 2rem 0; }
+    .section-info .contact-details ._name {
+      font-size: 2.5rem;
+      line-height: 1.3; }
+    .section-info .contact-details .section-info-text-sub {
+      font-size: 1.2rem;
+      line-height: 1.5; }
   .section-info .section-info-img {
     height: 14.5rem;
     max-width: 15rem;
@@ -287,6 +337,17 @@ a,
     padding: 0;
     margin: 0;
     color: #f8f8ff; }
+  .section-info .portfolio-btn {
+    background-color: #2496c1;
+    padding: .8rem .8rem;
+    width: fit-content;
+    font-size: 1.1rem;
+    margin: 2rem auto 0 auto;
+    display: block;
+    box-shadow: 3px 3px #4e494938;
+    color: #fff; }
+    .section-info .portfolio-btn:hover {
+      text-decoration: none; }
   .section-info .delay-1 {
     animation-delay: 1.3s !important; }
 
@@ -335,6 +396,30 @@ a,
 .carousel-control-next-icon {
   background-image: url("../images/arrow-left.svg"); }
 
+.next-text {
+  color: #4d4d4d;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0.3rem; }
+
+.clients-carousel-prev {
+  left: 0;
+  width: auto;
+  right: 10rem; }
+
+.clients-carousel-next {
+  left: 0;
+  width: 5rem;
+  right: 0; }
+
+.clients-carousel-prev-icon {
+  background-image: url("../images/arrow-prev-gray.svg");
+  width: .7rem; }
+
+.clients-carousel-next-icon {
+  background-image: url("../images/arrow-next-gray.svg");
+  width: .7rem; }
+
 .fadeInLeft {
   animation-delay: 0.5s; }
 
@@ -357,19 +442,41 @@ a,
     line-height: 1.2; }
   .section-mobile-hide {
     display: none !important; }
-  .carousel-control-next,
-  .carousel-control-prev {
-    width: 60%; }
   .section-info .section-info-description {
     font-size: 0.8rem;
-    overflow: auto;
     text-align: justify; }
+  .section-info-clients {
+    overflow: auto; }
+  .section-info-clients .clients-row {
+    grid-template-columns: repeat(3, 1fr); }
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 50%; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 50%; }
+  .clients-carousel-prev {
+    width: auto !important; }
+  .portfolio-section-list-main {
+    overflow: auto !important; }
+  .back-to-portfolio {
+    margin: 0 0 .5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; }
   .services-container {
     display: block !important;
     width: 100%;
     height: 100vh; }
   .section-info-clients {
-    overflow-x: auto !important; } }
+    overflow-x: auto !important; }
+  .contact-details {
+    margin: 0 0 2rem 0; }
+    .contact-details ._name {
+      font-size: 1.6rem !important;
+      line-height: 1.3;
+      margin: 0 0 1rem 0; } }
 
 @media screen and (max-width: 32.81rem) and (min-width: 21.93rem) {
   .offset-1 {
@@ -384,9 +491,13 @@ a,
     display: none !important; }
   .carousel-control-next,
   .carousel-control-prev {
-    width: 40%; }
+    width: 50%; }
   .second-section {
     justify-content: center; }
+  .section-info-clients {
+    overflow: auto; }
+  .section-info-clients .clients-row {
+    grid-template-columns: repeat(3, 1fr); }
   .section-info .section-info-description {
     font-size: 1rem;
     overflow: auto;
@@ -394,7 +505,26 @@ a,
   .services-container {
     display: block !important;
     width: 100%;
-    height: 100vh; } }
+    height: 100vh; }
+  .contact-section-main {
+    overflow: auto; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 50%; }
+  .clients-carousel-prev {
+    width: auto !important; }
+  .back-to-portfolio {
+    margin: 0 0 .5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; }
+  .contact-details {
+    margin: 0 0 2rem 0; }
+    .contact-details ._name {
+      font-size: 1.8rem !important;
+      line-height: 1.3;
+      margin: 0 0 1rem 0; } }
 
 @media screen and (max-width: 47.93rem) and (min-width: 32.81rem) {
   .offset-1 {
@@ -409,17 +539,78 @@ a,
     display: none !important; }
   .carousel-control-next,
   .carousel-control-prev {
-    width: 40%; }
+    width: 50%; }
   .second-section {
     justify-content: center; }
   .section-info .section-info-description {
-    font-size: 1rem;
-    overflow: auto;
-    text-align: justify; }
+    font-size: .8rem;
+    text-align: justify;
+    line-height: 1.3; }
+  .section-info .portfolio-btn {
+    margin: 1rem auto 0 auto; }
+  .section-info-clients {
+    overflow: auto !important; }
   .services-container {
     display: block !important;
     width: 100%;
-    height: 100vh; } }
+    height: 100vh; }
+  .contact-section-main {
+    overflow: auto; }
+  .section-info-clients .clients-row {
+    grid-template-columns: repeat(5, 1fr); }
+    .section-info-clients .clients-row .clients-carousel-next {
+      width: auto !important;
+      left: 50%; }
+    .section-info-clients .clients-row .clients-carousel-prev {
+      width: auto !important; }
+    .section-info-clients .clients-row .back-to-portfolio {
+      margin: 0 0 .5rem 0; }
+      .section-info-clients .clients-row .back-to-portfolio .back-to-portfolio-btn {
+        width: fit-content;
+        display: block;
+        margin: -3rem auto -2rem auto; }
+  .contact-details {
+    margin: 0 0 1rem 0; }
+    .contact-details ._name {
+      font-size: 1.8rem !important;
+      line-height: 1.3; } }
+
+@media screen and (max-width: 61.93rem) and (min-width: 48rem) {
+  .portfolio-section-list .offset-1 {
+    margin: 0; }
+  .section-info ._title {
+    font-size: 2rem;
+    line-height: 1.2; }
+  .section-info ._subtitle {
+    font-size: 1.2rem;
+    line-height: 1.2; }
+  .section-info .section-info-img {
+    height: 12rem; }
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 50%; }
+  .section-info .section-info-description {
+    font-size: .8rem;
+    text-align: justify;
+    line-height: 1.3; }
+  .section-info .portfolio-btn {
+    margin: 1rem auto 0 auto; }
+  .section-info-clients {
+    overflow: auto !important; }
+  .portfolio-section-main {
+    overflow: auto !important; }
+  .section-info-clients .clients-row {
+    grid-template-columns: repeat(6, 1fr) !important; }
+  .services-container {
+    display: block !important;
+    width: 100%;
+    height: 100vh; }
+  .section-info ._name {
+    font-size: 2rem !important; }
+  .col-gap {
+    margin: 80px 0 0 0; }
+  .col-gap .section-info {
+    height: auto; } }
 
 .services-container {
   display: flex;
@@ -480,11 +671,37 @@ a,
         font-size: 1.1rem;
         text-decoration: none;
         box-shadow: 3px 3px #4e494938; }
+      .services-container .section .content .content-two-link {
+        background-color: #c25e3a; }
+      .services-container .section .content .content-three-link {
+        background-color: #bf363c; }
+      .services-container .section .content .content-four-link {
+        background-color: #064f7d; }
       .services-container .section .content .content-five-link {
         background: #246e9d; }
+      .services-container .section .content .content-six-link {
+        background-color: #2496c1; }
       .services-container .section .content .content-head {
         font-size: 1.4rem;
         text-align: center;
         padding: 1rem 0.2rem; }
     .services-container .section:hover {
       flex: 2; }
+
+.back-to-portfolio {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; }
+  .back-to-portfolio .back-to-portfolio-btn {
+    background-color: #626262;
+    color: #f8f8ff;
+    padding: .4rem .7rem;
+    font-size: .8rem;
+    border-radius: 100px;
+    position: relative; }
+    .back-to-portfolio .back-to-portfolio-btn:hover {
+      text-decoration: none; }
+
+.carousel-actions {
+  margin: -2.5rem 0 0 0;
+  position: relative; }
