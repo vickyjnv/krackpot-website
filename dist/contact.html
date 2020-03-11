@@ -12,16 +12,36 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-contact">
-                <?php include('includes/sidebar.php'); ?>
+    <div class="section contact-section">
+        <nav class="navbar navbar-contact">
+            <div class="side_menu">
+                <div class="burger_box _inner">
+                    <div class="menu-icon-container">
+                        <a href="#" class="menu-icon js-menu_toggle closed">
+                            <span class="menu-icon_box">
+                                <span class="menu-icon_line menu-icon_line--1"></span>
+                                <span class="menu-icon_line menu-icon_line--2"></span>
+                                <span class="menu-icon_line menu-icon_line--3"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <img src="images/logo.png" alt="krackpot-logo" class="top-nav-logo">
+                <ul class="list_load">
+                    <li class="list-item"><a href="index.php">Home <i class="fas fa-angle-down"></i></a></li>
+                    <li class="list-item"><a href="about-us.php">About Us</a></li>
+                    <li class="list-item"><a href="services.php">Services</a></li>
+                    <li class="list-item"><a href="clients.php">Clients</a></li>
+                    <li class="list-item"><a href="portfolio.php">Portfolio</a></li>
+                    <li class="list-item"><a href="contact.php">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    </nav>
-
-    <div class="contact-section section-default-styling">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="section-info animated fadeInLeft contact-section-main">
+            <div class="row section-info">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 section-info-main">
+                    <div class="section-info-main animated fadeInLeft contact-section-main">
                         <div class="contact-details">
                             <h1 class="section-info-text _name">
                                 Susmita Basu Nayak
@@ -41,8 +61,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-1">
-                    <div class="section-info animated fadeInRight section-mobile-hide">
+                <div class="section-info-main col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 section-mobile-hide">
+                    <div class="animated fadeInRight ">
                         <img src="images/contact.svg" alt="contact" class="section-info-img">
                         <h1 class="section-info-head">Contact</h1>
                     </div>
@@ -50,7 +70,6 @@
             </div>
         </div>
     </div>
-  <?php include('includes/footer.php'); ?>
 
 </body>
 
