@@ -628,46 +628,8 @@ a,
     width: 50%;
   }
 
-  .clients-carousel-next {
-    width: auto !important;
-    left: 65%;
-  }
-
-  .clients-carousel-prev {
-    width: auto !important;
-    right: 65%;
-  }
-
-  /*  .portfolio-section-list-main {
-    overflow: auto !important;
-  } */
-
-  .col-gap {
-    margin: 3rem 0;
-  }
-
-  .carousel-actions {
-    margin: 1rem 0;
-    position: relative;
-    height: 3rem;
-  }
-
-  .slick-prev {
-    left: 3px !important;
-    z-index: 99999;
-  }
   .section-info-main .portfolio-btn {
     margin: 1rem auto 0 auto;
-  }
-
-  .back-to-portfolio {
-    margin: 0 0 0.5rem 0;
-
-    .back-to-portfolio-btn {
-      width: fit-content;
-      display: block;
-      margin: -3rem auto -2rem auto;
-    }
   }
 
   .services-container {
@@ -687,6 +649,44 @@ a,
       font-size: 1.6rem !important;
       line-height: 1.3;
       margin: 0 0 1rem 0;
+    }
+  }
+
+  .clients-carousel-next {
+    width: auto !important;
+    left: 60%;
+  }
+
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%;
+  }
+
+  .col-gap {
+    margin: 3rem 0;
+  }
+
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem;
+  }
+
+  .slick-prev {
+    left: 0 !important;
+  }
+
+  .slick-next {
+    right: 0 !important;
+  }
+
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0;
+
+    .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto;
     }
   }
 }
@@ -755,13 +755,42 @@ a,
     margin: 1rem auto 0 auto;
   }
 
+  .section-info-main .contact-details {
+    margin: 0 0 2rem 0;
+
+    ._name {
+      font-size: 1.8rem !important;
+      line-height: 1.3;
+      margin: 0 0 1rem 0;
+    }
+  }
+
   .clients-carousel-next {
     width: auto !important;
-    left: 50%;
+    left: 60%;
   }
 
   .clients-carousel-prev {
     width: auto !important;
+    right: 60%;
+  }
+
+  .col-gap {
+    margin: 3rem 0 !important;
+  }
+
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem;
+  }
+
+  .slick-prev {
+    left: 0 !important;
+  }
+
+  .slick-next {
+    right: 0 !important;
   }
 
   .back-to-portfolio {
@@ -771,16 +800,6 @@ a,
       width: fit-content;
       display: block;
       margin: -3rem auto -2rem auto;
-    }
-  }
-
-  .section-info-main .contact-details {
-    margin: 0 0 2rem 0;
-
-    ._name {
-      font-size: 1.8rem !important;
-      line-height: 1.3;
-      margin: 0 0 1rem 0;
     }
   }
 }
@@ -841,25 +860,6 @@ a,
 
   .section-info-clients .clients-row {
     grid-template-columns: repeat(5, 1fr);
-
-    .clients-carousel-next {
-      width: auto !important;
-      left: 50%;
-    }
-
-    .clients-carousel-prev {
-      width: auto !important;
-    }
-
-    .back-to-portfolio {
-      margin: 0 0 0.5rem 0;
-
-      .back-to-portfolio-btn {
-        width: fit-content;
-        display: block;
-        margin: -3rem auto -2rem auto;
-      }
-    }
   }
 
   .section-info-main .contact-details {
@@ -868,6 +868,44 @@ a,
     ._name {
       font-size: 1.8rem !important;
       line-height: 1.3;
+    }
+  }
+
+  .clients-carousel-next {
+    width: auto !important;
+    left: 60%;
+  }
+
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%;
+  }
+
+  .col-gap {
+    margin: 3rem 0 !important;
+  }
+
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem;
+  }
+
+  .slick-prev {
+    left: 0 !important;
+  }
+
+  .slick-next {
+    right: 0 !important;
+  }
+
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0;
+
+    .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto;
     }
   }
 }
@@ -938,6 +976,44 @@ a,
     display: block !important;
     width: 100%;
     height: calc(100vh - 7rem) !important;
+  }
+
+  .clients-carousel-next {
+    width: auto !important;
+    left: 90%;
+  }
+
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%;
+  }
+
+  .col-gap {
+    margin: 3rem 0 !important;
+  }
+
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem;
+  }
+
+  .slick-prev {
+    left: 0 !important;
+  }
+
+  .slick-next {
+    right: 0 !important;
+  }
+
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0;
+
+    .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto;
+    }
   }
 }
 

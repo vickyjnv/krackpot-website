@@ -464,29 +464,8 @@ a,
   .carousel-control-next,
   .carousel-control-prev {
     width: 50%; }
-  .clients-carousel-next {
-    width: auto !important;
-    left: 65%; }
-  .clients-carousel-prev {
-    width: auto !important;
-    right: 65%; }
-  /*  .portfolio-section-list-main {
-    overflow: auto !important;
-  } */
-  .col-gap {
-    margin: 3rem 0; }
-  .carousel-actions {
-    margin: 1rem 0;
-    position: relative;
-    height: 3rem; }
   .section-info-main .portfolio-btn {
     margin: 1rem auto 0 auto; }
-  .back-to-portfolio {
-    margin: 0 0 0.5rem 0; }
-    .back-to-portfolio .back-to-portfolio-btn {
-      width: fit-content;
-      display: block;
-      margin: -3rem auto -2rem auto; }
   .services-container {
     display: block !important;
     width: 100%;
@@ -498,7 +477,29 @@ a,
     .section-info-main .contact-details ._name {
       font-size: 1.6rem !important;
       line-height: 1.3;
-      margin: 0 0 1rem 0; } }
+      margin: 0 0 1rem 0; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 60%; }
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%; }
+  .col-gap {
+    margin: 3rem 0; }
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem; }
+  .slick-prev {
+    left: 0 !important; }
+  .slick-next {
+    right: 0 !important; }
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; } }
 
 @media screen and (max-width: 32.81rem) and (min-width: 21.93rem) {
   .offset-1 {
@@ -537,23 +538,34 @@ a,
     height: calc(100vh - 7rem) !important; }
   .section-info-main .portfolio-btn {
     margin: 1rem auto 0 auto; }
-  .clients-carousel-next {
-    width: auto !important;
-    left: 50%; }
-  .clients-carousel-prev {
-    width: auto !important; }
-  .back-to-portfolio {
-    margin: 0 0 0.5rem 0; }
-    .back-to-portfolio .back-to-portfolio-btn {
-      width: fit-content;
-      display: block;
-      margin: -3rem auto -2rem auto; }
   .section-info-main .contact-details {
     margin: 0 0 2rem 0; }
     .section-info-main .contact-details ._name {
       font-size: 1.8rem !important;
       line-height: 1.3;
-      margin: 0 0 1rem 0; } }
+      margin: 0 0 1rem 0; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 60%; }
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%; }
+  .col-gap {
+    margin: 3rem 0 !important; }
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem; }
+  .slick-prev {
+    left: 0 !important; }
+  .slick-next {
+    right: 0 !important; }
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; } }
 
 @media screen and (max-width: 47.93rem) and (min-width: 32.81rem) {
   .offset-1 {
@@ -588,22 +600,33 @@ a,
     height: calc(100vh - 7rem) !important; }
   .section-info-clients .clients-row {
     grid-template-columns: repeat(5, 1fr); }
-    .section-info-clients .clients-row .clients-carousel-next {
-      width: auto !important;
-      left: 50%; }
-    .section-info-clients .clients-row .clients-carousel-prev {
-      width: auto !important; }
-    .section-info-clients .clients-row .back-to-portfolio {
-      margin: 0 0 0.5rem 0; }
-      .section-info-clients .clients-row .back-to-portfolio .back-to-portfolio-btn {
-        width: fit-content;
-        display: block;
-        margin: -3rem auto -2rem auto; }
   .section-info-main .contact-details {
     margin: 0 0 1rem 0; }
     .section-info-main .contact-details ._name {
       font-size: 1.8rem !important;
-      line-height: 1.3; } }
+      line-height: 1.3; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 60%; }
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%; }
+  .col-gap {
+    margin: 3rem 0 !important; }
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem; }
+  .slick-prev {
+    left: 0 !important; }
+  .slick-next {
+    right: 0 !important; }
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; } }
 
 @media screen and (max-width: 61.93rem) and (min-width: 48rem) {
   .portfolio-section-list .offset-1 {
@@ -643,7 +666,29 @@ a,
   .services-container {
     display: block !important;
     width: 100%;
-    height: calc(100vh - 7rem) !important; } }
+    height: calc(100vh - 7rem) !important; }
+  .clients-carousel-next {
+    width: auto !important;
+    left: 90%; }
+  .clients-carousel-prev {
+    width: auto !important;
+    right: 60%; }
+  .col-gap {
+    margin: 3rem 0 !important; }
+  .carousel-actions {
+    margin: 1rem 0;
+    position: relative;
+    height: 3rem; }
+  .slick-prev {
+    left: 0 !important; }
+  .slick-next {
+    right: 0 !important; }
+  .back-to-portfolio {
+    margin: 0 0 0.5rem 0; }
+    .back-to-portfolio .back-to-portfolio-btn {
+      width: fit-content;
+      display: block;
+      margin: -3rem auto -2rem auto; } }
 
 .services-container {
   display: flex;

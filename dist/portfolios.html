@@ -11,11 +11,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
     <link rel="stylesheet" href="style/slick.css">
     <link rel="stylesheet" href="style/slick-theme.css">
+
+    <style>
+
+    </style>
 </head>
 
 <body>
     <div class="section portfolio-section-list">
-        <nav class="navbar navbar-portfolio-list" id="scroll-hide">
+        <nav class="navbar navbar-portfolio-list" id="navbar">
             <div class="side_menu">
                 <div class="burger_box _inner">
                     <div class="menu-icon-container">
@@ -45,7 +49,7 @@
                     <div class="carousel-item active">
                         <div class="carousel-item active">
                             <div class="row section-info">
-                                <div class="offset-1 col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 section-info-main">
+                                <div class="offset-1 col-lg-5 col-xl-5 col-md-12 col-sm-12 col-xs-12 section-info-main">
                                     <div class="animated fadeInLeft">
                                         <div class="portfolio-section-list-main animated fadeInLeft">
                                             <img src="images/clients/fila_logo.png" alt="" class="clients-img">
@@ -116,57 +120,50 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        <script src="script/custom.js"></script>
-        <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.clients-slider').slick({
-                    infinite: false,
-                    speed: 300,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    fade: true,
-                    cssEase: 'linear',
-                    arrows: true,
-                    prevArrow: '<div class="slider-arrow slider-prev fas fa-chevron-left"></div>',
-                    nextArrow: '<div class="slider-arrow slider-next fas fa-chevron-right"></div>',
-                    responsive: [{
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                dots: true
-                            }
-                        },
-                        {
-                            breakpoint: 600,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        }
-                    ]
-                })
-            });
-        </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="script/custom.js"></script>
+    <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.clients-slider').slick({
+                infinite: false,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                fade: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                cssEase: 'linear',
+                arrows: true,
+                /*  prevArrow: '<div class="slider-arrow slider-prev fas fa-chevron-left"></div>',
+                 nextArrow: '<div class="slider-arrow slider-next fas fa-chevron-right"></div>', */
+            })
+        });
+    </script>
+
+    <!-- <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.display = "block";
+            } else {
+                document.getElementById("navbar").style.display = "block";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script> -->
 </body>
 
 </html>
