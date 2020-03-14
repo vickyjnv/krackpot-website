@@ -14,37 +14,13 @@
 <body>
     <div class="section portfolio-section">
         <nav class="navbar navbar-portfolio">
-            <div class="side_menu">
-                <div class="burger_box _inner">
-                    <div class="menu-icon-container">
-                        <a href="#" class="menu-icon js-menu_toggle closed">
-                            <span class="menu-icon_box">
-                                <span class="menu-icon_line menu-icon_line--1"></span>
-                                <span class="menu-icon_line menu-icon_line--2"></span>
-                                <span class="menu-icon_line menu-icon_line--3"></span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <img src="images/logo.png" alt="krackpot-logo" class="top-nav-logo">
-                <ul class="list_load">
-                    <li class="list-item"><a href="index.php">Home <i class="fas fa-angle-down"></i></a></li>
-                    <li class="list-item"><a href="about-us.php">About Us</a></li>
-                    <li class="list-item"><a href="services.php">Services</a></li>
-                    <li class="list-item"><a href="clients.php">Clients</a></li>
-                    <li class="list-item"><a href="portfolio.php">Portfolio</a></li>
-                    <li class="list-item"><a href="contact.php">Contact Us</a></li>
-                </ul>
-            </div>
+            <?php include('includes/sidebar.php'); ?>
         </nav>
         <div class="container">
             <div class="row ">
                 <div class="col-lg-12">
                     <div id="section-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                        <ol class="carousel-indicators">
-                            <li data-target="#section-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#section-carousel" data-slide-to="1"></li>
-                        </ol>
+                       <?php include('includes/carousel-indicators.php'); ?>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row section-info">
@@ -108,72 +84,14 @@
                             </div>
                         </div>
 
-                        <a class="carousel-control-prev" href="#section-carousel" role="button" data-slide="next">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#section-carousel" role="button" data-slide="prev">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                        <?php include('includes/carousel-controls.php'); ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="script/custom.js"></script>
-    <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-    <script src="script/jquery.mobile-1.4.5.js"></script>
-    <script>
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-        window.addEventListener('resize', () => {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        });
-    </script>
-
-    <script>
-        let vh1 = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh1', `${vh1}px`);
-
-        window.addEventListener('resize', () => {
-            let vh1 = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh1', `${vh1}px`);
-        });
-    </script>
-
-    <script>
-        let vh2 = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh2', `${vh2}px`);
-
-        window.addEventListener('resize', () => {
-            let vh2 = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh2', `${vh2}px`);
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $("#section-carousel").swiperight(function () {
-                $("#section-carousel").carousel('prev');
-            });
-            $("#section-carousel").swipeleft(function () {
-                $("#section-carousel").carousel('next');
-            });
-        });
-    </script>
+    <?php include('includes/footer.php'); ?>
 
 </body>
 
