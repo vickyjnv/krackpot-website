@@ -1,0 +1,165 @@
+<?php include('includes/connectionClass.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/css/dropzone.css">
+    <link rel="stylesheet" href="assets/css/basic.css">
+
+
+</head>
+
+<body>
+    <?php include_once('includes/navbar.php'); ?>
+    <?php include_once('includes/sidebar.php'); ?>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <h1 class="greetings">Add New Portfolio</h1>
+            <div class="page-card">
+                <form action="add-portfolio.php" method="POST" id="portfolio-form" name="form"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="brand-logo">Upload Logo</label>
+                        <div class="file-upload-wrapper" data-text="Select your file!">
+                            <input name="brand-logo" type="file" class="file-upload-field" id="brand-logo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-logo">Brand Description</label>
+                        <textarea name="brand-description" id="description-editor" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-header"> Work Details (i.e Design Or Developed)</label>
+                        <input type="text" name="brand-work-header" id="work-header" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="work-description"> Work Description</label>
+                        <input type="text" name="brand-work-description" id="work-description" class="form-control">
+                    </div>
+                    <!-- <div class="form-group">
+                    <label for="multiple-image-upload"> Brands Images</label><br>
+                    <button type="button" class="btn-upload" data-toggle="modal" data-target="#uploadImageModal">Upload Images Here</button>
+                </div> -->
+
+                    <div class="form-group">
+                        <label for="brand-logo">Upload Brand Images</label>
+                        <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Multiple Images">
+                            <input name="brand-images[]" type="file" class="file-upload-field" id="brand-images"
+                                multiple>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="yt-link"> Youtube Video Link</label>
+                        <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
+                    </div>
+                    <div class="button-center">
+                        <input type="submit" class="btn btn-gradient-primary mt-4 mb-4" name="submit">
+                    </div>
+                </form>
+
+
+                <?php 
+
+                if(isset($_POST['submit'])){
+                    $brand_logo = $_FILES['brand-logo']['name'];
+                    $brand_logo_temp = $_FILES['brand-logo']['tmp_name'];
+                    $brand_description = $_POST['brand-description'];
+                    $brand_work_header = $_POST['brand-work-header'];
+                    $brand_work_description = $_POST['brand-work-description'];
+                    $brand_youtube_video_link = $_POST['brand-yt-link'];
+                    $date = date('d-m-y');
+
+                    //Image Function
+                    move_uploaded_file($brand_logo_temp,"uploads/$brand_logo");
+
+                    //Securing Youtube Video So That It Will Accept All Html Elements
+                    $secureVideo = htmlentities($brand_youtube_video_link);
+
+                    //Insert Query
+                    $add_query = "INSERT INTO krackpottb (brand_logo,brand_description,brand_work_header,
+                    brand_work_description,brand_youtube_video,date) VALUES ('{$brand_logo}','{$brand_description}',
+                    '{$brand_work_header}','{$brand_work_description}','{$secureVideo}', now())";
+
+                    $add_query_result = mysqli_query($connect,$add_query);
+
+                    if(!$add_query_result){
+                        die("Query Failed !".mysqli_error($connect));
+                    }else{
+                        echo '<div class="alert alert-success" role="alert">
+                                    Element Added Successfully!
+                                </div>';
+                    }
+
+                }
+
+            ?>
+            </div>
+        </div>
+
+        <div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="uploadImageModalTitle">Upload Images</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="imageDropzone" action="imageUpload.php" enctype="multipart/form-data"
+                            class="dropzone">
+                            <div class="dz-message">
+                                <div class="icon"><span class="fa fa-cloud fa-3x"></span></div>
+                                <h3>Click Or Drag and Drop Images here!!!</h3>
+                            </div>
+                        </form>
+                        <div class="button-center">
+                            <!-- <button type="button" class="btn mt-3 text-center btn-primary" id="upload-all-images">Upload</button> -->
+                        </div>
+                        <div id="preview"></div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include_once('includes/footer.php'); ?>
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+        <script src="assets/script/dropzone.js"></script>
+        <script>
+            $("form").on("change", ".file-upload-field", function () {
+                $(this).parent(".file-upload-wrapper").attr("data-text", $(this).val().replace(/.*(\/|\\)/,
+                ''));
+            });
+
+            CKEDITOR.replace('description-editor');
+        </script>
+
+        <script>
+            Dropzone.autoDiscover = false;
+            var dropzone1 = new Dropzone('#imageDropzone', {
+                maxFiles: 50,
+                forceFallbacks: true,
+                autoDiscover: false,
+                createImageThumbnails: false,
+                init: function () {
+                    this.on("success", function (file, response) {
+                        alert(response);
+                    });
+                }
+            });
+        </script>
+</body>
+
+</html>

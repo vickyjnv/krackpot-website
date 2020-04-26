@@ -366,27 +366,24 @@ a,
   /* height: 100%; */
 
   #clients-slider {
+    height: 100%;
 
-    .clients-slider-inner {
+    .clients-slider-img {
+      display: block;
       height: 100%;
+      width: 100%;
+      position: relative;
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
 
-      .clients-slider-img {
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: relative;
-        padding: 0 20px;
-        margin-bottom: 40px;
-      }
-
-      .clients-slider-videos {
-        display: block;
-        height: auto;
-        width: 100%;
-        position: relative;
-        padding: 0 20px;
-        margin-bottom: 40px;
-      }
+    .clients-slider-videos {
+      display: block;
+      height: auto;
+      width: 100%;
+      position: relative;
+      padding: 0 20px;
+      margin-bottom: 40px;
     }
   }
 }

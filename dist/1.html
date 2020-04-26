@@ -15,9 +15,29 @@
 
 <body>
     <div class="section portfolio-section-list">
-        <nav class="navbar navbar-portfolio-list">
-            <?php include('includes/sidebar.php') ?>
-
+        <nav class="navbar navbar-portfolio-list fixed-top">
+            <div class="side_menu">
+                <div class="burger_box _inner">
+                    <div class="menu-icon-container">
+                        <a href="#" class="menu-icon js-menu_toggle closed">
+                            <span class="menu-icon_box">
+                                <span class="menu-icon_line menu-icon_line--1"></span>
+                                <span class="menu-icon_line menu-icon_line--2"></span>
+                                <span class="menu-icon_line menu-icon_line--3"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <img src="images/logo.png" alt="krackpot-logo" class="top-nav-logo">
+                <ul class="list_load">
+                    <li class="list-item"><a href="index.php">Home <i class="fas fa-angle-down"></i></a></li>
+                    <li class="list-item"><a href="about-us.php">About Us</a></li>
+                    <li class="list-item"><a href="services.php">Services</a></li>
+                    <li class="list-item"><a href="clients.php">Clients</a></li>
+                    <li class="list-item"><a href="portfolio.php">Portfolio</a></li>
+                    <li class="list-item"><a href="contact.php">Contact Us</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="container-fluid">
             <div id="section-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -47,16 +67,16 @@
                                 <div class="section-info-start animated fadeInRight">
                                     <div id="clients-slider" class="clients-slider">
                                         <img src="images/clients/0fila1.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                <img src="images/clients/1fila2.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                 <img src="images/clients/2fila3.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                 <iframe class="clients-slider-videos"
-                                                src="https://www.youtube.com/embed/uE1m21Umn0s" frameborder="0"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen>
-                                            </iframe>
+                                            class="clients-slider-img">
+                                        <img src="images/clients/1fila2.png" alt="Clients Brand Image"
+                                            class="clients-slider-img">
+                                        <img src="images/clients/2fila3.png" alt="Clients Brand Image"
+                                            class="clients-slider-img">
+                                        <iframe class="clients-slider-videos"
+                                            src="https://www.youtube.com/embed/uE1m21Umn0s" frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
                                     </div>
                                 </div>
                             </div>
@@ -85,19 +105,24 @@
                             </div>
                             <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 section-info-main col-gap">
                                 <div class="section-info-start animated fadeInRight">
-                                     <div id="clients-slider" class="clients-slider">
+                                    <div id="clients-slider" class="clients-slider">
                                         <div class="clients-slider-inner">
-                                            <img src="images/clients/0fila1.png" alt="Clients Brand Image" class="clients-slider-img">
+                                            <img src="images/clients/0fila1.png" alt="Clients Brand Image"
+                                                class="clients-slider-img">
                                         </div>
                                         <div class="clients-slider-inner">
-                                            <img src="images/clients/1fila2.png" alt="Clients Brand Image" class="clients-slider-img">
+                                            <img src="images/clients/1fila2.png" alt="Clients Brand Image"
+                                                class="clients-slider-img">
                                         </div>
                                         <div class="clients-slider-inner">
-                                            <img src="images/clients/2fila3.png" alt="Clients Brand Image" class="clients-slider-img">
+                                            <img src="images/clients/2fila3.png" alt="Clients Brand Image"
+                                                class="clients-slider-img">
                                         </div>
                                         <div class="clients-slider-inner">
-                                            <iframe class="clients-slider-videos" src="https://www.youtube.com/embed/uE1m21Umn0s" frameborder="0"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                            <iframe class="clients-slider-videos"
+                                                src="https://www.youtube.com/embed/uE1m21Umn0s" frameborder="0"
+                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
                                             </iframe>
                                         </div>
                                     </div>
@@ -134,10 +159,40 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="script/custom.js"></script>
+    <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="script/slick.js"></script>
+    <script src="script/jquery.mobile-1.4.5.js"></script>
+    <script src="script/swipe-carousel.js"></script>
+    <script>
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    
-    <?php include('includes/footer.php') ?>
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
 
+        let vh1 = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh1', `${vh1}px`);
+
+        window.addEventListener('resize', () => {
+            let vh1 = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh1', `${vh1}px`);
+        });
+
+        $('#section-carousel').carousel().swipeCarousel({
+            sensitivity: 'high'
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('.clients-slider').slick({
