@@ -20,7 +20,7 @@
 
 <body>
     <div class="section portfolio-section-list">
-        <nav class="navbar navbar-portfolio-list fixed-top">
+        <nav class="navbar navbar-portfolio-list">
             <?php include('includes/sidebar.php') ?>
 
         </nav>
@@ -37,7 +37,7 @@
                                 <div class="portfolio-section-list-main animated fadeInLeft">
                                 
                                     <img src="../dashboard-static/uploads/<?php echo $row['brand_logo'];?>" class="clients-img">
-                                    <p class="clients-description"><?php echo $row['brand_description'];?></p>
+                                    <div class="clients-description"><?php echo $row['brand_description'];?></div>
 
                                     <h1 class="work-text -title"><?php echo $row['brand_work_header'];?></h1>
                                     <h1 class="work-text -subtitle"><?php echo $row['brand_work_description'];?>
@@ -68,11 +68,15 @@
                                                 $res=$data['images'];
                                                 $res=explode(" ",$res);
                                                 $count=count($res)-1;
-                                                for($i=0;$i<$count;++$i){
+                                                $video = $data['video'];
+/*                                                 $video = html_entity_decode($video);
+ */                                                for($i=0;$i<$count;++$i){
                                                 ?>
                                                 <img src="../dashboard-static/uploads/<?php echo $res[$i] ?>" class="clients-slider-img"/>
-                                                
                                                 <?php } ?>
+                                                <div class="iframe-container">
+                                                    <?php echo $video; ?>
+                                                </div>
                                     </div>
                                 </div>
                             </div>

@@ -9,7 +9,6 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/shared_style.css">
   <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body class="header-fixed">
@@ -82,18 +81,17 @@
   <div class="page-body">
     <div class="sidebar">
       <div class="user-profile">
-        <div class="display-avatar animated-avatar">
-          <img class="profile-img img-lg rounded-circle" src="assets/images/avatar.png" alt="profile image">
-        </div>
+        <img class="profile-img img-lg rounded-circle" src="assets/images/avatar.png" alt="profile image">
         <div class="info-wrapper">
           <p class="user-name">Aditya Nayak</p>
-          <h6 class="display-income">Director - Creative</h6>
+          <h6 class="display-role">Director</h6>
         </div>
       </div>
+
       <ul class="navigation-menu">
         <li class="nav-category-divider">MAIN</li>
         <li>
-          <a href="index.html">
+          <a href="index.php">
             <span class="link-title">Dashboard</span>
             <i class="fas fa-tachometer-alt fa-fw link-icon"></i>
           </a>
@@ -105,10 +103,12 @@
           </a>
           <ul class="collapse navigation-submenu" id="sample-pages">
             <li>
-              <a href="portfolio/add-portfolio.html" target="_blank">Add Portfolio</a>
+              <a href="portfolio/add-portfolio.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
+                Portfolio</a>
             </li>
             <li>
-              <a href="pages/sample-pages/error_2.html" target="_blank">View All Portfolio</a>
+              <a href="portfolio/view-portfolio.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
+                Portfolios</a>
             </li>
           </ul>
         </li>
@@ -133,7 +133,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-6 equel-grid">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
@@ -147,7 +147,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-6 equel-grid">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
@@ -161,7 +161,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-6 equel-grid">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
@@ -184,9 +184,9 @@
                   </ul>
                 </div>
                 <div class="col-sm-6 text-center text-sm-left mt-3 mt-sm-0">
-                  <small class="text-muted d-block">Copyright © 2019 <a href="http://www.uxcandy.co"
-                      target="_blank">UXCANDY</a>. All rights reserved</small>
-                  <small class="text-gray mt-2">Handcrafted With <i class="mdi mdi-heart text-danger"></i></small>
+                  <small class="text-muted d-block">Copyright © 2019 <a href="http://www.krackpot.co.in"
+                      target="_blank">KrackPot</a>. All rights reserved</small>
+                  <small class="text-gray mt-2">Handcrafted With <i class="fas fa-heart fa-1x fa-fw"></i></small>
                 </div>
               </div>
             </footer>

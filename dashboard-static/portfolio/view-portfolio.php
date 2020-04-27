@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Portfolio</title>
+    <title>Upload Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/shared_style.css">
@@ -135,92 +135,12 @@
                 <div class="content-viewport">
                     <div class="row">
                         <div class="col-12 py-5">
-                            <h4 class="dashboard-header">Add New Portfolio</h4>
-                            <p class="dashboard-sub text-gray ">Fill The Following Multi-Step Form To Display Portfolio
+                            <h4 class="dashboard-header">View All Portfolios</h4>
+                            <p class="dashboard-sub text-gray">View All Your Uploaded Portfolios Here
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="portfolio-section">
-                <ul class="steps">
-                    <li class="is-active">Step 1 (Clients Brand Information)</li>
-                    <li>Step 2 (Work Images & Video)</li>
-                </ul>
-                <form action="add-portfolio.html" method="POST" id="portfolio-form" name="form" enctype="multipart/form-data" class="form-wrapper">
-                    <fieldset class="section is-active">
-                        <div class="form-group">
-                            <label for="brand-logo">Upload Logo</label>
-                            <div class="file-upload-wrapper" data-text="Select your file!">
-                                <input name="brand-logo" type="file" class="file-upload-field" id="brand-logo">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="brand-logo">Brand Description</label>
-                            <textarea name="brand-description" id="description-editor" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="work-header"> Work Details (i.e Design Or Developed)</label>
-                            <input type="text" name="brand-work-header" id="work-header" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="work-description"> Work Description</label>
-                            <input type="text" name="brand-work-description" id="work-description" class="form-control">
-                        </div>
-                        <div class="button">
-                            <input type="submit" name="info-submit" value="Next Step" class="form-wrapper-btn">
-                        </div>
-
-                        <?php
-
-                        if(isset($_POST['info-submit'])){
-                        /* $id = $_POST['id']; */
-                        $brand_logo = $_FILES['brand-logo']['name'];
-                        $brand_logo_temp = $_FILES['brand-logo']['tmp_name'];
-                        $brand_description = $_POST['brand-description'];
-                        $brand_work_header = $_POST['brand-work-header'];
-                        $brand_work_description = $_POST['brand-work-description'];
-                        $date = date('d-m-y');
-
-                        //Image Function
-                        move_uploaded_file($brand_logo_temp,"../uploads/$brand_logo");
-
-                        //Insert Query (For Details Table)
-                        $add_query = "INSERT INTO krackpottb_demo_1 (brand_logo,brand_description,brand_work_header,
-                        brand_work_description,date_of_upload) VALUES ('{$brand_logo}','{$brand_description}',
-                        '{$brand_work_header}','{$brand_work_description}',now())";
-
-                        $add_query_result = mysqli_query($connect,$add_query);
-
-                        if(!$add_query_result){
-                            die("Something Went Wrong".mysqli_error($connect));
-                        }else{
-                        echo '<div class="alert alert-success" role="alert">
-                                    Element Added Successfully!
-                                </div>';
-                        }
-
-                    }
-                    ?>
-                    </fieldset>
-
-                    <fieldset class="section">
-                        <div class="form-group">
-                            <label for="brand-logo">Upload Brand Images</label>
-                            <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Multiple Images">
-                                <input name="brand-images[]" type="file" class="file-upload-field" id="brand-images"
-                                    multiple>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="yt-link"> Youtube Video Link</label>
-                            <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
-                        </div>
-                        <div class="button">
-                            <input type="submit" value="Submit" class="form-wrapper-btn">
-                        </div>
-                    </fieldset>
-                </form>
             </div>
         </div>
     </div>
@@ -232,31 +152,7 @@
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
-    <script>
-        CKEDITOR.replace('description-editor');
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $(".form-wrapper .button").click(function () {
-                var button = $(this);
-                var currentSection = button.parents(".section");
-                var currentSectionIndex = currentSection.index();
-                var headerSection = $('.steps li').eq(currentSectionIndex);
-                currentSection.removeClass("is-active").next().addClass("is-active");
-                headerSection.removeClass("is-active").next().addClass("is-active");
-
-                $(".form-wrapper").submit(function (e) {
-                    e.preventDefault();
-                });
-
-                if (currentSectionIndex === 3) {
-                    $(document).find(".form-wrapper .section").first().addClass("is-active");
-                    $(document).find(".steps li").first().addClass("is-active");
-                }
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

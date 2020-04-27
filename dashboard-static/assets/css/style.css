@@ -289,11 +289,11 @@
 
 .sidebar .user-profile .user-name {
   font-weight: 600;
-  margin-top: 25px;
+  margin-top: 5px;
+  font-size: 27px;
 }
 
-.sidebar .user-profile .display-income {
-  margin-top: 5px;
+.sidebar .user-profile .display-role {
   color: rgba(16, 16, 16, 0.4);
 }
 
@@ -306,7 +306,7 @@
 
 .sidebar .navigation-menu li {
   display: block;
-  margin: 0;
+  padding: 25px 0 0 0;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.26, 0.66, 0.45, 0.78);
   transition-property: "background";
@@ -349,7 +349,7 @@
 }
 
 .sidebar .navigation-menu li a .link-icon {
-  margin-right: 15px;
+  margin-right: 5px;
   line-height: 1;
   color: #525c5d;
   font-size: 1.1875rem;
@@ -376,11 +376,11 @@
 
 .sidebar .navigation-menu li .navigation-submenu li a {
   display: block;
-  padding: calc(9px) 30px calc(9px) calc(30px + 2px);
+  padding: 0 0 15px 15px;
   opacity: 0.5;
   letter-spacing: 0.03rem;
   font-weight: 500;
-  font-size: calc(13px - 1px);
+  font-size: 16px;
   transition: 0.3s ease-in-out;
   transition-property: color;
 }
@@ -447,6 +447,7 @@
 
 .sidebar .navigation-menu .link-title {
   color: #839092;
+  font-size: 17px;
 }
 
 .sidebar .navigation-menu li.active a .link-title {
@@ -472,15 +473,16 @@
 }
 
 .sidebar .navigation-menu>li:not(.nav-category-divider)>a[data-toggle="collapse"]:after {
-  content: "\f142";
-  font-family: "Material Design Icons";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0da";
   font-size: 15px;
   text-rendering: auto;
   line-height: inherit;
   font-weight: bolder;
   position: absolute;
   top: 13px;
-  right: 30px;
+  right: 15px;
   display: block;
   transition: 0.3s;
   transition-property: -webkit-transform;
@@ -505,7 +507,7 @@ footer {
   left: 0;
   right: 0;
   padding: 2rem 2.5rem;
-  max-width: 1140px;
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -728,8 +730,10 @@ footer ul li a {
 }
 
 .img-lg {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
 }
 
 .grid {
@@ -1024,3 +1028,5 @@ footer ul li a {
   color: #444;
   margin: 0;
 }
+
+@media screen and (max-wdith:526px) and (min-width:100px) {}
