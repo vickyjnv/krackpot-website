@@ -47,20 +47,8 @@
                             <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 section-info-main col-gap">
                                 <div class="section-info-start animated fadeInRight">
                                     <div id="clients-slider" class="clients-slider">
-                                            <!-- <img src="images/clients/0fila1.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                <img src="images/clients/1fila2.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                 <img src="images/clients/2fila3.png" alt="Clients Brand Image"
-                                                class="clients-slider-img">
-                                                 <iframe class="clients-slider-videos"
-                                                src="https://www.youtube.com/embed/uE1m21Umn0s" frameborder="0"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen>
-                                            </iframe> -->
-
+                                        
                                             <?php 
-
                                                 $i="";
                                                 $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
                                                 $fire=mysqli_query($connect,$query);
@@ -68,14 +56,27 @@
                                                 $res=$data['images'];
                                                 $res=explode(" ",$res);
                                                 $count=count($res)-1;
-                                                $video = $data['video'];
-/*                                                 $video = html_entity_decode($video);
- */                                                for($i=0;$i<$count;++$i){
+                                            
+                                            
+                                                /*Image Loop */
+                                                for($i=0;$i<$count;++$i){
                                                 ?>
-                                                <img src="../dashboard-static/uploads/<?php echo $res[$i] ?>" class="clients-slider-img"/>
-                                                <?php } ?>
+                                                <img src="../dashboard-static/uploads/<?php echo $res[$i] ?>" class="img-fluid rounded clients-slider-img"/>
+                                                <?php }
+                                                 
+                                                    /*Videos */
+                                                    $video = $data['video'];
+                                                    $video_2 = $data['video_2'];
+                                                    $video_3 = $data['video_3'];
+                                                ?>
                                                 <div class="iframe-container">
                                                     <?php echo $video; ?>
+                                                </div>
+                                                <div class="iframe-container">
+                                                    <?php echo $video_2; ?>
+                                                </div>
+                                                <div class="iframe-container">
+                                                    <?php echo $video_3; ?>
                                                 </div>
                                     </div>
                                 </div>
@@ -131,7 +132,8 @@
 
         $('.carousel').carousel({
             interval:false
-        })
+        });
+
         $(".carousel-inner .carousel-item:first-child" ).addClass('active');
         
         if($('a.carousel-item:first-child').hasClass('active'))

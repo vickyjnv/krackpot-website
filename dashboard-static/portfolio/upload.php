@@ -157,8 +157,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="yt-link"> Youtube Video Link</label>
+                            <label for="yt-link"> Youtube Video Link (One)</label>
                             <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
+                        </div>
+                         <div class="form-group">
+                            <label for="yt-link"> Youtube Video Link (Two)</label>
+                            <input type="text" name="brand-yt-link_2" id="yt-link_2" class="form-control">
+                        </div>
+                         <div class="form-group">
+                            <label for="yt-link"> Youtube Video Link (Three)</label>
+                            <input type="text" name="brand-yt-link_3" id="yt-link_3" class="form-control">
                         </div>
                         <div class="button">
                             <input type="submit" name="upload-portfolio" value="Upload Portfolio" class="form-wrapper-btn">
@@ -190,11 +198,16 @@
                                     $data .=$file." ";
                                 }
                                 $brand_youtube_video_link = $_POST['brand-yt-link'];
+                                $brand_youtube_video_link_2 = $_POST['brand-yt-link_2'];
+                                $brand_youtube_video_link_3 = $_POST['brand-yt-link_3'];
                                 
                                 //Securing Youtube Video So That It Will Accept All Html Elements
                                 $secureVideo = htmlentities($brand_youtube_video_link);
+                                $secureVideo_2 = htmlentities($brand_youtube_video_link_2);
+                                $secureVideo_3 = htmlentities($brand_youtube_video_link_3);
 
-                                $add_query_attachments_table = "INSERT INTO attachments (images,video,attachment_id) VALUES ('{$data}','{$brand_youtube_video_link}','{$id}')";
+                                $add_query_attachments_table = "INSERT INTO attachments (images,video,video_2,video_3,attachment_id) VALUES ('{$data}','{$secureVideo}','{$secureVideo_2}'
+                                ,'{$secureVideo_3}','{$id}')";
                                 $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
 
                                 if(!$add_query_attachments_table_result){

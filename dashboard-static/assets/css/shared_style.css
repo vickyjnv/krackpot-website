@@ -13595,8 +13595,12 @@ table:not(.table-dark) tfoot {
 .table:not(.table-dark) tfoot tr th,
 table:not(.table-dark) thead tr th,
 table:not(.table-dark) tfoot tr th {
-  background: #fff;
-  color: #101010;
+  background: #444;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
 .table:not(.table-dark) tbody tr[class*='bg'],
