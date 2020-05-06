@@ -16,7 +16,7 @@
 <body class="header-fixed">
     <nav class="t-header">
         <div class="t-header-brand-wrapper">
-            <a href="../index.php">
+            <a href="add-portfolio.php">
                 <img class="logo" src="../assets/images/logo.png" alt="">
             </a>
         </div>
@@ -112,10 +112,10 @@
                     </a>
                     <ul class="collapse navigation-submenu" id="sample-pages">
                         <li>
-                            <a href="add-portfolio.php" target="_blank">Add Portfolio</a>
+                            <a href="pages/sample-pages/login_1.html" target="_blank">Add Portfolio</a>
                         </li>
                         <li>
-                            <a href="view-portfolio.php" target="_blank">View All Portfolio</a>
+                            <a href="pages/sample-pages/error_2.html" target="_blank">View All Portfolio</a>
                         </li>
                     </ul>
                 </li>
@@ -144,69 +144,108 @@
             </div>
             <div id="portfolio-section">
                 <ul class="steps">
-                    <li class="is-active">Step 1 (Clients Brand Information)</li>
+                    <li class="is-active">Step 2 (Upload Images And Video)</li>
                 </ul>
-                <form action="#" method="POST" id="portfolio-form" name="form" enctype="multipart/form-data"
-                    class="form-wrapper">
+                <form action="upload-copy.php" method="POST" id="portfolio-form" name="form"
+                    enctype="multipart/form-data" class="form-wrapper">
                     <fieldset class="section is-active">
                         <div class="form-group">
-                            <label for="brand-logo">Upload Logo</label>
-                            <div class="file-upload-wrapper" data-text="Select your file!">
-                                <input name="brand-logo" type="file" class="file-upload-field" id="brand-logo">
+                            <label for="brand-logo">Upload Brand Images</label>
+                            <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Multiple Images">
+                                <input name="brand-images[]" type="file" class="file-upload-field" id="brand-images"
+                                    multiple>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="brand-logo">Brand Description</label>
-                            <textarea name="brand-description" id="description-editor" class="form-control" required></textarea>
+                            <label for="yt-link"> Youtube Video Link (One)</label>
+                            <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="work-header"> Work Details (i.e Design Or Developed)</label>
-                            <input type="text" name="brand-work-header" id="work-header" class="form-control" required>
+                         <div class="form-group">
+                            <label for="yt-link"> Youtube Video Link (Two)</label>
+                            <input type="text" name="brand-yt-link_2" id="yt-link_2" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="work-description"> Work Description</label>
-                            <input type="text" name="brand-work-description" id="work-description" class="form-control" required>
+                         <div class="form-group">
+                            <label for="yt-link"> Youtube Video Link (Three)</label>
+                            <input type="text" name="brand-yt-link_3" id="yt-link_3" class="form-control">
                         </div>
                         <div class="button">
-                            <input type="submit" name="info-submit" value="Proceed To Upload Images And Video"
-                                class="form-wrapper-btn">
+                            <input type="submit" name="upload-portfolio" value="Upload Portfolio" class="form-wrapper-btn">
                         </div>
+
+                        <?php
+
+                        /*Getting Last Uploaded ID */
+                            $selectquery="SELECT id FROM krackpottb_demo_1 ORDER BY id DESC LIMIT 1";
+                            $result = mysqli_query($connect,$selectquery);
+                            $row = $result->fetch_assoc();
+                            if ($row > 0) {
+                                $id = $row['id'];
+                            } else {
+                                echo "Error";
+                            }
+
+                            /*MultiUpload Image & Youtube Videos */
+                            if(isset($_POST['upload-portfolio'])){
+                               
+                               /*  $file_name='';
+                                $file_size='';
+                                $file_tmp='';
+                                $file_type='';
+                                $errors= array();
+                                foreach($_FILES['brand-images']['tmp_name'] as $key => $tmp_name ){
+                                    $file_name = $key.$_FILES['brand-images']['name'][$key];
+                                    $file_tmp =$_FILES['brand-images']['tmp_name'][$key];		
+                                    $desired_dir="../uploads";
+                                    if(empty($errors)==true){
+                                        if(is_dir($desired_dir)==false){
+                                        mkdir("$desired_dir", 0700);    
+                                        }
+                                        if(is_dir("$desired_dir/".$file_name)==false){
+                                            move_uploaded_file($file_tmp,"$desired_dir/".$file_name);
+                                        }else{  
+                                            $new_dir="$desired_dir/".$file_name.microtime();
+                                            rename($file_tmp,$new_dir) ;				
+                                        }
+                                    }else{
+                                        print_r($errors);                                    
+                                    }
+                                }
+                                $add_query_attachments_table = "INSERT INTO attachments (images,attachment_id) VALUES ('{$file_name}','{$id}')";
+                                $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
+                                if(!$add_query_attachments_table_result){
+                                    die(mysqli_error($connect));
+                                }else{
+                                    echo '<div class="alert alert-success mt-3" role="alert">
+                                                Element Added Successfully!
+                                            </div>';
+                                } */
+
+                                $output_dir = "../uploads/";/* Path for file upload */
+                                $fileCount = count($_FILES["brand-images"]['name']);
+                                for($i=0; $i < $fileCount; $i++){
+                                    $RandomNum = time();
+                                    $ImageName = str_replace(' ','-',strtolower($_FILES['brand-images']['name'][$i]));
+                                    $ImageType = $_FILES['brand-images']['type'][$i]; /*"image/png", image/jpeg etc.*/
+                                    $ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+                                    $ImageExt = str_replace('.','',$ImageExt);
+                                    $ImageName = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                                    $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+                                    $ret[$NewImageName]= $output_dir.$NewImageName;     
+                                    move_uploaded_file($_FILES["brand-images"]["tmp_name"][$i],$output_dir."/".$NewImageName );
+                                    
+                                    $add_query_attachments_table = "INSERT INTO attachments (images,attachment_id) VALUES ('{$NewImageName}','{$id}')";
+                                    $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
+                                    if(!$add_query_attachments_table_result){
+                                        die(mysqli_error($connect));
+                                    }else{
+                                        echo '<div class="alert alert-success mt-3" role="alert">
+                                                    Element Added Successfully!
+                                                </div>';
+                                    }
+                                }
+                            }
+                        ?>
                     </fieldset>
-
-                    <?php
-
-                        if(isset($_POST['info-submit'])){
-                        /* $id = $_POST['id']; */
-                        $permitted = array('jpg','jpeg','png','gif');
-                        $brand_logo = $_FILES['brand-logo']['name'];
-                        $brand_logo_temp = $_FILES['brand-logo']['tmp_name'];
-                        $brand_description = $_POST['brand-description'];
-                        $brand_work_header = $_POST['brand-work-header'];
-                        $brand_work_description = $_POST['brand-work-description'];
-                        $date = date('d-m-y');
-
-                        //Image Function
-                        $image_function = explode('.',$brand_logo);
-                        $file_ext = strtolower(end($image_function));
-                        $random_image_name  = substr(md5(time()),0,15).'.'.$file_ext;
-                        $uploaded_image = "../uploads/".$random_image_name;
-                        move_uploaded_file($brand_logo_temp,$uploaded_image);
-
-                        //Insert Query (For Details Table)
-                        $add_query = "INSERT INTO krackpottb_demo_1 (brand_logo,brand_description,brand_work_header,
-                        brand_work_description,date_of_upload) VALUES ('{$uploaded_image}','{$brand_description}',
-                        '{$brand_work_header}','{$brand_work_description}',now())";
-
-                        $add_query_result = mysqli_query($connect,$add_query);
-
-                        if(!$add_query_result){
-                            die("Something Went Wrong".mysqli_error($connect));
-                        }else{
-                            echo "<script type='text/javascript'> window.location='upload.php'; </script>";
-                        }
-
-                    }
-                    ?>
                 </form>
             </div>
         </div>
@@ -214,14 +253,10 @@
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-    <script src="../assets/script/core.js"></script>
-    <script src="../assets/script/template.js"></script>
+    <script src="assets/script/core.js"></script>
+    <script src="assets/script/template.js"></script>
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-
-    <script>
-        CKEDITOR.replace('description-editor');
-    </script>
 </body>
 
 </html>

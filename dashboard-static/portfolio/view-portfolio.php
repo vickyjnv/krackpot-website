@@ -25,16 +25,16 @@
             background-color: #fff;
             border: 1px solid #dee2e6;
             border-radius: .25rem;
-            width: 80px;
-            height:80px;
+            width: 60px;
+            height:60px;
             display:inline-block;
-            margin: 0 0 10px 0;
+            margin: 0 5px 10px 0;
         }
 
         iframe{
-            width:100px;
+            width:80px;
             padding:0 10px 0 0;
-            height:100px;
+            height:80px;
             display:inline-block;
         }
     </style>
@@ -43,7 +43,7 @@
 <body class="header-fixed">
     <nav class="t-header">
         <div class="t-header-brand-wrapper">
-            <a href="index.html">
+            <a href="../index.php">
                 <img class="logo" src="../assets/images/logo.png" alt="">
             </a>
         </div>
@@ -137,11 +137,11 @@
                         <i class="far fa-clipboard link-icon fa-fw"></i>
                     </a>
                     <ul class="collapse navigation-submenu" id="sample-pages">
-                        <li>
-                            <a href="pages/sample-pages/login_1.html" target="_blank">Add Portfolio</a>
+                       <li>
+                            <a href="add-portfolio.php" target="_blank">Add Portfolio</a>
                         </li>
                         <li>
-                            <a href="pages/sample-pages/error_2.html" target="_blank">View All Portfolio</a>
+                            <a href="view-portfolio.php" target="_blank">View All Portfolio</a>
                         </li>
                     </ul>
                 </li>
@@ -184,7 +184,7 @@
                 <tbody>
                     <?php
                         include("db.php");
-                        $query ="SELECT * FROM krackpottb_demo_1";
+                        $query ="SELECT * FROM krackpottb_demo_1 ORDER BY id DESC";
                         $sql = mysqli_query($connect,$query);
                         while($row = mysqli_fetch_array($sql)){
         	        ?>
@@ -195,18 +195,20 @@
                     <td><?php echo $row["brand_work_header"];?></td>
                     <td width="300"><?php echo $row["brand_work_description"];?></td>
                     
-                     <?php 
+                    <?php 
                         $i="";
                         $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
                         $fire=mysqli_query($connect,$query);
                         while($resultsn=mysqli_fetch_assoc($fire)){
+                            $i='';
                             $fetch_img =  $resultsn['images'];
                             $tempr = explode(' ',$fetch_img);
-                            $imgs = ' ';
-                            foreach($tempr as $imager){
-                                $imgs .= "<img src='../uploads/".$imager."' class='img-thumbnail'/> ";
+                            $count=count($tempr)-1;
+                            $imgs = '';
+                            for($i=0;$i<$count;++$i){
+                                $imgs .= "<img src='../uploads/".$tempr[$i]."' class='img-thumbnail'/>";
                             }
-                        ?>
+                    ?>
                     <td><?php echo $imgs; ?></td>
                     <td><?php   
                             $video = $resultsn['video'];
@@ -226,6 +228,22 @@
         </div>
     </div>
 
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered dialog-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div> -->
+
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="../assets/script/core.js"></script>
@@ -237,6 +255,12 @@
     <script type="text/javascript" language="javascript">
         $(document).ready(function() {
             $('#portfolio_table').DataTable();
+        });
+
+        $(document).ready(function () {
+            $("img").click(function () {
+                $('#myModal').modal('show'); 
+            });
         });
     </script>
 </body>

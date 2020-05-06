@@ -16,7 +16,7 @@
 <body class="header-fixed">
     <nav class="t-header">
         <div class="t-header-brand-wrapper">
-            <a href="index.html">
+            <a href="add-portfolio.php">
                 <img class="logo" src="../assets/images/logo.png" alt="">
             </a>
         </div>
@@ -181,11 +181,10 @@
                             if ($row > 0) {
                                 $id = $row['id'];
                             } else {
-
                                 echo "Error";
                             }
 
-                            /*MulitUpload Image And Uploading Youtube Video */
+                            /*MultiUpload Image & Youtube Videos */
                             if(isset($_POST['upload-portfolio'])){
                                 $file='';
                                 $file_tmp='';
@@ -194,26 +193,21 @@
                                 foreach($_FILES['brand-images']['name'] as $key=>$val){
                                     $file=$_FILES['brand-images']['name'][$key];
                                     $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
-                                    move_uploaded_file($file_tmp,$location.$file);
-                                    $data .=$file." ";
+                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,15).$file);
+                                    $data .=substr(md5(time()),0,15).$file." ";
                                 }
                                 $brand_youtube_video_link = $_POST['brand-yt-link'];
                                 $brand_youtube_video_link_2 = $_POST['brand-yt-link_2'];
                                 $brand_youtube_video_link_3 = $_POST['brand-yt-link_3'];
                                 
-                                //Securing Youtube Video So That It Will Accept All Html Elements
-                                $secureVideo = htmlentities($brand_youtube_video_link);
-                                $secureVideo_2 = htmlentities($brand_youtube_video_link_2);
-                                $secureVideo_3 = htmlentities($brand_youtube_video_link_3);
-
-                                $add_query_attachments_table = "INSERT INTO attachments (images,video,video_2,video_3,attachment_id) VALUES ('{$data}','{$secureVideo}','{$secureVideo_2}'
-                                ,'{$secureVideo_3}','{$id}')";
+                                $add_query_attachments_table = "INSERT INTO attachments (images,video,video_2,video_3,attachment_id) VALUES ('{$data}','{$brand_youtube_video_link}','{$brand_youtube_video_link_2}'
+                                ,'{$brand_youtube_video_link_3}','{$id}')";
                                 $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
 
                                 if(!$add_query_attachments_table_result){
                                     die(mysqli_error($connect));
                                 }else{
-                                    echo '<div class="alert alert-success" role="alert">
+                                    echo '<div class="alert alert-success mt-3" role="alert">
                                                 Element Added Successfully!
                                             </div>';
                                 }
