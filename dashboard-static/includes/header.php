@@ -7,7 +7,7 @@
     <div class="t-header-content-wrapper">
       <div class="t-header-content">
         <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
-          <i class="fas fa-bars"></i>
+          <i class="fas fa-bars fa-2x fa-fw"></i>
         </button>
         <!-- <form action="#" class="t-header-search-box">
           <div class="input-group">
@@ -15,7 +15,7 @@
             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
           </div>
         </form> -->
-        <p class="dashboard-sub text-gray ">Welcome aboard, Aditya Nayak</p>
+        <p class="dashboard-sub text-gray display-mobile-hide">Welcome aboard, Aditya Nayak</p>
 
         <ul class="nav ml-auto">
           <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
             </div>
           </li>
         </ul>
-        <a href="#" class="button button-common button-logout">Logout</a>
+        <a href="logout.php" class="button button-common button-logout">Logout</a>
       </div>
     </div>
   </nav>

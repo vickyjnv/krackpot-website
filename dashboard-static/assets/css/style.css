@@ -405,7 +405,12 @@ a:hover {
 }
 
 .t-header .t-header-toggler i {
-  font-size: 1.375rem;
+  color: #525c5d;
+}
+
+.t-header .t-header-toggler i:active {
+  outline: none;
+  color: #181818;
 }
 
 .t-header .t-header-toggler.t-header-mobile-toggler {
@@ -845,6 +850,7 @@ footer ul li a {
     width: 4rem;
     min-width: 4rem;
     max-width: 4rem;
+    display: none
   }
 
   .t-header .t-header-brand-wrapper a .logo {
@@ -1042,12 +1048,12 @@ footer ul li a {
   transform: scale(1, 1);
 }
 
-.form-wrapper .button,
+/* .form-wrapper .button,
 .form-wrapper .submit {
   display: inline-block;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
 .form-wrapper-btn {
   display: -webkit-box;
@@ -1073,6 +1079,7 @@ footer ul li a {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  cursor: pointer;
 }
 
 .form-wrapper-btn:hover {
@@ -1110,7 +1117,10 @@ footer ul li a {
 
 .form-wrapper input[type="text"]:active,
 .form-wrapper input[type="text"]:focus {
-  border: 1px solid #ed1c24;
+  border: 1px solid #2f80ed;
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
 }
 
 .form-wrapper input[type="radio"] {
@@ -1525,5 +1535,77 @@ input.input100 {
   body,
   html {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width:400px) and (min-width:100px) {
+  .dashboard-header {
+    font-size: 30px !important;
+  }
+
+  .display-mobile-show {
+    display: inline;
+    font-size: 18px;
+  }
+
+  .dashboard-sub {
+    font-size: 20px !important;
+  }
+
+  .display-mobile-hide {
+    display: none !important;
+  }
+
+  .h3 {
+    font-size: 1rem !important;
+  }
+
+  .steps {
+    padding: 40px 10px;
+    width: 100% !important;
+  }
+
+  .steps li {
+    font-size: 18px;
+  }
+
+  .form-group label {
+    font-size: 1.2rem !important;
+  }
+
+  .form-wrapper .section {
+    width: auto;
+    right: 0px;
+    left: 0px;
+  }
+
+  .form-wrapper-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 5px 8px;
+    font-size: .9rem !important;
+  }
+}
+
+@media screen and (max-width:700px) and (min-width:401px) {
+  .dashboard-header {
+    font-size: 38px !important;
+  }
+
+  .display-mobile-show {
+    display: inline;
+    font-size: 24px;
+  }
+
+  .display-mobile-hide {
+    display: none !important;
+  }
+
+  .dashboard-sub {
+    font-size: 20px !important;
+  }
+
+  .h3 {
+    font-size: 1.5rem !important;
   }
 }

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body class="header-fixed">
@@ -20,7 +21,8 @@
         <div class="content-viewport">
           <div class="row">
             <div class="col-12 py-5">
-                      <h4 class="dashboard-header">Dashboard</h4>
+              <h4 class="dashboard-header">Dashboard</h4>
+            <p class="dashboard-sub text-gray display-mobile-show">Welcome aboard, Aditya Nayak</p>
 
             </div>
           </div>
@@ -90,7 +92,9 @@
 
   <script src="assets/script/core.js"></script>
   <script src="assets/script/template.js"></script>
+  
   <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
