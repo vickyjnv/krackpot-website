@@ -2,5 +2,4 @@
 
 $connect = mysqli_connect("localhost","root","","krackpot");
 
-
 ?>

@@ -1,3 +1,4 @@
+<?php include('includes/connectionClass.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body class="header-fixed">
@@ -31,16 +31,19 @@
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
-                    <p class="h3">All Portfolios (12)</p>
+                   <?php
+                        
+                      $display_no_of_rows_query = "SELECT * FROM krackpottb_demo_1";
+                      $display_no_of_rows_query_result = mysqli_query($connect,$display_no_of_rows_query);
+
+                      $rows_count = mysqli_num_rows($display_no_of_rows_query_result);                        
+                    ?>
+                    <p class="h3">All Portfolios (<?php echo $rows_count ?>)</p>
                     <img src="assets/images/work.svg" alt="" height="80">
-                  </div>
-                  <!--<p class="text-black">All Portfolios</p>-->
-                  <!-- <div class="wrapper w-50 mt-4">
-                    <canvas height="45" id="stat-line_1"></canvas>
-                  </div> -->
+                  </div>  
+                </div>
                 </div>
               </div>
-            </div>
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
@@ -48,12 +51,8 @@
                     <p class="h3">Images Uploaded (1000)</p>
                     <img src="assets/images/photo.svg" alt="" height="80">
                   </div>
-                  <!--<p class="text-black">All Portfolios</p>-->
-                  <!-- <div class="wrapper w-50 mt-4">
-                    <canvas height="45" id="stat-line_1"></canvas>
-                  </div> -->
-                </div>
               </div>
+            </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
@@ -62,10 +61,7 @@
                     <p class="h3">Videos Uploaded (12)</p>
                     <img src="assets/images/video.svg" alt="" height="80">
                   </div>
-                  <!--<p class="text-black">All Portfolios</p>-->
-                  <!-- <div class="wrapper w-50 mt-4">
-                    <canvas height="45" id="stat-line_1"></canvas>
-                  </div> -->
+                 
                 </div>
               </div>
             </div>

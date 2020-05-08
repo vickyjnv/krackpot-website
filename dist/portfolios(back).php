@@ -141,6 +141,10 @@
             $('a.carousel-control-next').css('display','none');
             
         }
+
+        $('.clients-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+            $('.slick-current iframe').attr('src', $('.slick-current iframe').attr('src'));
+        });
     </script>
 </body>
 

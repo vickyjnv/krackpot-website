@@ -1,3 +1,4 @@
+<?php include('includes/connectionClass.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>View All Portfolios</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <style>
@@ -26,16 +25,16 @@
             background-color: #fff;
             border: 1px solid #dee2e6;
             border-radius: .25rem;
-            width: 60px;
-            height:60px;
+            width: 100px;
+            height:100px;
             display:inline-block;
-            margin: 0 5px 10px 0;
+            margin: 0 5px 5px 0;
         }
 
         iframe{
-            width:80px;
-            padding:0 10px 0 0;
-            height:80px;
+            width:200px;
+            padding:0 0 10px 0;
+            height:200px;
             display:inline-block;
         }
     </style>
@@ -82,9 +81,9 @@
                 <tr>
                     <td><?php echo $row["id"];?></td>
                     <td><img src='../uploads/<?php echo $row["brand_logo"];?>' width="100"></td>";
-                    <td width="300"><?php echo $row["brand_description"];?></td>
+                    <td width="250"><?php echo $row["brand_description"];?></td>
                     <td><?php echo $row["brand_work_header"];?></td>
-                    <td width="300"><?php echo $row["brand_work_description"];?></td>
+                    <td width="150"><?php echo $row["brand_work_description"];?></td>
                     
                     <?php 
                         $i="";
@@ -111,7 +110,10 @@
                             }
                         ?>
                     </td>
-                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-block mb-1">EDIT</a> <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-block" onClick="return confirm('Are you sure you want to delete?')">DELETE</a></td>
+                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-block mb-1">Edit Information</a>
+                    <a href="edit-multiple-uploads.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-block">Edit Images & Videos</a>
+                    <hr>
+                    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-block" onClick="return confirm('Are you sure you want to delete?')">DELETE</a></td>
                 </tr>
             <?php } ?>
                 </tbody>

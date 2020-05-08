@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Add Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/shared_style.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
@@ -152,7 +151,6 @@
                     //Updating Query
                     if(isset($_GET['edit'])){
                         $id = $_GET["edit"];
-
                         $all_rows = "SELECT * FROM krackpottb_demo_1 WHERE id = $id";
                         $all_rows_result = mysqli_query($connect, $all_rows);
 
@@ -190,7 +188,7 @@
                             <input type="text" name="brand-work-description" id="work-description" value="<?php echo $brand_work_description ?>" class="form-control" required>
                         </div>
                         <div class="button">
-                            <input type="submit" name="update" value="Proceed To Update Uploaded Images And Video"
+                            <input type="submit" name="update" value="Update Information"
                                 class="form-wrapper-btn">
                         </div>
                     </fieldset>
@@ -214,8 +212,15 @@
                         $uploaded_image = "../uploads/".$random_image_name;
                         move_uploaded_file($brand_logo_temp,$uploaded_image);
 
-                        $update_post_query ="UPDATE krackpottb_demo_1 SET brand_logo = '{$uploaded_image}', brand_description = '{$brand_description}' 
-                        ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
+
+                        /*If No Image File Is Selected */
+                        if ((!($_FILES['brand-logo']['name']))){
+                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_description = '{$brand_description}' 
+                            ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
+                        }else{
+                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_logo = '{$uploaded_image}', brand_description = '{$brand_description}' 
+                            ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
+                        }
 
                         $update_post_query_result = mysqli_query($connect,$update_post_query);
 
@@ -223,12 +228,10 @@
                             die('Query Failed'.mysqli_error($connection));
                         }else{
                             echo '<div class="alert alert-success pt-2" role="alert">
-                                    Portfolio Updated Succesfully!
+                                    Portfolio Information Updated Succesfully!
                                 </div>';
-                            
                         }
                     }
-
                 ?>    
             </div>
         </div>

@@ -28,15 +28,11 @@
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
             <div id="portfolio-section">
-                <ul class="steps">
-                    <li class="is-active">Step 1 (Clients Brand Information)</li>
-                </ul>
-                <form action="#" method="POST" id="portfolio-form" name="form" enctype="multipart/form-data"
-                    class="form-wrapper">
-                    <fieldset class="section is-active">
+                <div class="portfolio-section-wrap">
+                    <h1 class="portfolio-section-head">Step 1 (Clients Brand Information) </h1>
+                </div>
+                <form action="#" method="POST" id="portfolio-form" name="form" enctype="multipart/form-data" class="form-wrapper">
                         <div class="form-group">
                             <label for="brand-logo">Upload Logo</label>
                             <div class="file-upload-wrapper" data-text="Select your file!">
@@ -45,21 +41,20 @@
                         </div>
                         <div class="form-group">
                             <label for="brand-logo">Brand Description</label>
-                            <textarea name="brand-description" id="description-editor" class="form-control" required></textarea>
+                            <textarea name="brand-description" id="description-editor" class="form-control" ></textarea>
                         </div>
                         <div class="form-group">
                             <label for="work-header"> Work Details (i.e Design Or Developed)</label>
-                            <input type="text" name="brand-work-header" id="work-header" class="form-control" required>
+                            <input type="text" name="brand-work-header" id="work-header" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="work-description"> Work Description</label>
-                            <input type="text" name="brand-work-description" id="work-description" class="form-control" required>
+                            <input type="text" name="brand-work-description" id="work-description" class="form-control" >
                         </div>
                         <div class="button">
                             <input type="submit" name="info-submit" value="Proceed To Upload Images And Video"
-                                class="form-wrapper-btn">
+                                class="form-wrapper-btn mt-8">
                         </div>
-                    </fieldset>
 
                     <?php
 
@@ -99,6 +94,8 @@
             </div>
         </div>
     </div>
+    </div>
+</div>       
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
