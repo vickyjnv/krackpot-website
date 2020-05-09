@@ -5,39 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>View All Portfolios</title>
+    <title>View Portfolios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <style>
-        td p{
-            line-height:1.4;
-            font-weight:300 !important;
-            font-size:17px;
-            margin:0;
-            padding:10px 0;
-            color:#5c5b5b;
-            text-align:justify;
-        }
-
-        .img-thumbnail {
-            padding: .25rem;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: .25rem;
-            width: 100px;
-            height:100px;
-            display:inline-block;
-            margin: 0 5px 5px 0;
-        }
-
-        iframe{
-            width:200px;
-            padding:0 0 10px 0;
-            height:200px;
-            display:inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/datatable.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-32x32.png">
 </head>
 
 <body class="header-fixed">
@@ -52,13 +27,12 @@
                     <div class="row">
                         <div class="col-12 py-5">
                             <h4 class="dashboard-header">View All Portfolios</h4>
-                            <p class="dashboard-sub text-gray">All Your Uploaded Portfolios Are Here!
-                            </p>
+                           
                         </div>
                     </div>
                 </div>
             </div>
-            <table id="portfolio_table" class="table table-hover table-bordered table-hover w-100" >
+            <table id="portfolio_table" class="table table-striped table-bordered table-hover w-100" >
                <thead class="thead">
                     <tr>
                         <th>ID</th>
@@ -73,15 +47,14 @@
                 </thead>
                 <tbody>
                     <?php
-                        include("db.php");
                         $query ="SELECT * FROM krackpottb_demo_1 ORDER BY id DESC";
                         $sql = mysqli_query($connect,$query);
                         while($row = mysqli_fetch_array($sql)){
         	        ?>
                 <tr>
-                    <td><?php echo $row["id"];?></td>
-                    <td><img src='../uploads/<?php echo $row["brand_logo"];?>' width="100"></td>";
-                    <td width="250"><?php echo $row["brand_description"];?></td>
+                    <td><?php echo $row["id"]; ?></td>
+                    <td><img src='../uploads/<?php echo $row["brand_logo"];?>' class="uploaded-image"></td>
+                    <td width="250"><?php echo strip_tags($row["brand_description"]);?></td>
                     <td><?php echo $row["brand_work_header"];?></td>
                     <td width="150"><?php echo $row["brand_work_description"];?></td>
                     
@@ -96,7 +69,7 @@
                             $count=count($tempr)-1;
                             $imgs = '';
                             for($i=0;$i<$count;++$i){
-                                $imgs .= "<img src='../uploads/".$tempr[$i]."' class='img-thumbnail'/>";
+                                $imgs .= "<img src='../uploads/".$tempr[$i]."' class='img-thumbnail'>";
                             }
                     ?>
                     <td><?php echo $imgs; ?></td>
@@ -110,10 +83,10 @@
                             }
                         ?>
                     </td>
-                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-info btn-block mb-1">Edit Information</a>
-                    <a href="edit-multiple-uploads.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-block">Edit Images & Videos</a>
+                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common b-blue mb-1">Edit Information</a>
+                    <a href="edit-multiple-uploads.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Images & Videos</a>
                     <hr>
-                    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-block" onClick="return confirm('Are you sure you want to delete?')">DELETE</a></td>
+                    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn-common btn-delete btn-block" onClick="return confirm('Are you sure you want to delete?');">DELETE</a></td>
                 </tr>
             <?php } ?>
                 </tbody>
@@ -126,9 +99,8 @@
     <script src="../assets/script/core.js"></script>
     <script src="../assets/script/template.js"></script>
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>  
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>  
     <script type="text/javascript" language="javascript">
         $(document).ready(function() {
             $('#portfolio_table').DataTable();

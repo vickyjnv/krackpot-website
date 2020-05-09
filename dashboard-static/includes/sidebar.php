@@ -1,6 +1,6 @@
 <div class="sidebar">
       <div class="user-profile">
-        <img class="profile-img img-lg rounded-circle" src="assets/images/avatar.png" alt="profile image">
+        <img class="profile-img img-lg rounded-circle" src="../assets/images/avatar.png" alt="profile image">
         <div class="info-wrapper">
           <p class="user-name">Aditya Nayak</p>
           <h6 class="display-role">Director</h6>
@@ -10,7 +10,7 @@
       <ul class="navigation-menu">
         <li class="nav-category-divider">MAIN</li>
         <li>
-          <a href="index.php">
+          <a href="../index.php">
             <span class="link-title">Dashboard</span>
             <i class="fas fa-tachometer-alt fa-fw link-icon"></i>
           </a>
@@ -22,11 +22,11 @@
           </a>
           <ul class="collapse navigation-submenu" id="sample-pages">
             <li>
-              <a href="portfolio/add-portfolio.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
+              <a href="add-portfolio.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
                 Portfolio</a>
             </li>
             <li>
-              <a href="portfolio/view-portfolio.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
+              <a href="view-portfolio.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
                 Portfolios</a>
             </li>
           </ul>

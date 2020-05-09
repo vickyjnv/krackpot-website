@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Portfolio</title>
+    <title>Edit Portfolio (Images & Videos)</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
-
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-32x32.png">
 </head>
 
 <body class="header-fixed">
@@ -21,18 +23,13 @@
                 <div class="content-viewport">
                     <div class="row">
                         <div class="col-12 py-5">
-                            <h4 class="dashboard-header">Add New Portfolio</h4>
-                            <p class="dashboard-sub text-gray ">Fill The Following Multi-Step Form To Display Portfolio
+                            <h4 class="dashboard-header">Update Uploaded Images And Videos</h4>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="portfolio-section">
-                <ul class="steps">
-                    <li class="is-active">Step 2 (Upload Images And Video)</li>
-                </ul>
-
+           <div id="portfolio-section">
                 <?php
                     //Getting Id
                     if(isset($_GET['edit'])){
@@ -40,7 +37,7 @@
                     }
                 ?>
                 <form action="#" method="POST" id="portfolio-form" name="form"
-                    enctype="multipart/form-data" class="form-wrapper">
+                    enctype="multipart/form-data" class="form-wrapper pt-4">
                     <fieldset class="section is-active">
                     <h3 class="prev-text">Previously Uploaded Images</h3>
                     <?php 
@@ -65,22 +62,25 @@
                                     multiple>
                             </div>
                         </div>
-
-                        <h3 class="prev-text-video">Previously Uploaded Youtube Videos</h3>
-
+    
                         <?php
                         $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
                         $fire=mysqli_query($connect,$query);
-                        while($resultsn=mysqli_fetch_assoc($fire)){   
+                        $rows_count = mysqli_num_rows($fire);
+                        if(!$rows_count){
+                            echo "<h1 class='prev-text mt-8'>No Videos Uploaded</h1>";
+                        }else{
+                            while($resultsn=mysqli_fetch_assoc($fire)){   
                             $video = $resultsn['video'];
                             $video_2 = $resultsn['video_2'];
                             $video_3 = $resultsn['video_3'];
                             
                             ?>
+                            <h1 class='prev-text mt-8'>Previously Uploaded Video(s)</h1>
                             <div class="uploaded-iframe"><?php echo $video; ?></div>
                             <div class="uploaded-iframe"><?php echo $video_2; ?></div>
                             <div class="uploaded-iframe"><?php echo $video_3; ?></div>
-                            <?php } ?>
+                        <?php }} ?>
                         <div class="form-group">
                             <label for="yt-link"> Upload New Youtube Video Link (One)</label>
                             <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
@@ -94,7 +94,7 @@
                             <input type="text" name="brand-yt-link_3" id="yt-link_3" class="form-control">
                         </div>
                         <div class="button">
-                            <input type="submit" name="upload-portfolio" value="Update" class="form-wrapper-btn">
+                            <input type="submit" name="upload-portfolio" value="Update Files" class="form-wrapper-btn mt-8">
                         </div>
 
                         <?php

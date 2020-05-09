@@ -5,30 +5,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Portfolio</title>
+    <title>Add Portfolio (Step 1)</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-32x32.png">
 
 </head>
 
 <body class="header-fixed">
     <?php include('../includes/header.php'); ?>
-    <!-- partial -->
     <div class="page-body">
         <?php include('../includes/sidebar.php'); ?>
-        <!-- partial -->
         <div class="page-content-wrapper">
             <div class="page-content-wrapper-inner">
                 <div class="content-viewport">
                     <div class="row">
                         <div class="col-12 py-5">
                             <h4 class="dashboard-header">Add New Portfolio</h4>
-                            <p class="dashboard-sub text-gray ">Fill The Following Multi-Step Form To Display Portfolio
-                            </p>
+                            
                         </div>
                     </div>
-            <div id="portfolio-section">
+            <div id="portfolio-section" class="mt-4">
                 <div class="portfolio-section-wrap">
                     <h1 class="portfolio-section-head">Step 1 (Clients Brand Information) </h1>
                 </div>
