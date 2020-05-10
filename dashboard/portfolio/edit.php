@@ -81,7 +81,6 @@
 
                     if(isset($_POST['update'])){
 
-                        $brand_logo = $_POST['brand-logo'];
                         $brand_description = $_POST['brand-description'];
                         $brand_work_header = $_POST['brand-work-header'];
                         $brand_work_description = $_POST['brand-work-description'];
@@ -91,7 +90,7 @@
                         $brand_logo_temp = $_FILES['brand-logo']['tmp_name'];
                         $image_function = explode('.',$brand_logo);
                         $file_ext = strtolower(end($image_function));
-                        $random_image_name  = substr(md5(time()),0,15).'.'.$file_ext;
+                        $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
                         $uploaded_image = "../uploads/".$random_image_name;
                         move_uploaded_file($brand_logo_temp,$uploaded_image);
 
@@ -108,7 +107,7 @@
                         $update_post_query_result = mysqli_query($connect,$update_post_query);
 
                         if(!$update_post_query_result){
-                            die('Query Failed'.mysqli_error($connection));
+                            die('Query Failed');
                         }else{
                             echo '<div class="alert alert-success pt-2" role="alert">
                                     Portfolio Information Updated Succesfully!

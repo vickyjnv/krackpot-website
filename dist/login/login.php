@@ -1,4 +1,4 @@
-<?php include('includes/connectionClass.php'); ?>
+<?php include('../../dashboard/includes/connectionClass.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +8,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../dashboard/assets/css/style.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../dashboard/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../dashboard/assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../dashboard/assets/images/favicon-32x32.png">
 </head>
 
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image:url('assets/images/banner.svg');"></div>
+				<div class="login100-form-title" style="background-image:url('../../dashboard/assets/images/banner.svg');"></div>
 
-				<form class="login100-form validate-form" method="POST">
+				<form action="<?php echo $_SERVER['PHP_SELF']?>" class="login100-form validate-form" method="POST">
 					<div class="wrap-input100 validate-input m-b-40" data-validate="Username is required">
 						<input class="input100" type="text" name="username" placeholder="Enter username">
 						<span class="focus-input100"></span>
@@ -37,7 +40,7 @@
 
 
 				<?php 
-
+					session_start();
 					if(isset($_POST['login'])){
 						$username = $_POST['username'];
                     	$password = $_POST['password'];
@@ -48,19 +51,36 @@
 						$login_query = "SELECT * FROM login WHERE username = '{$username}' AND password = '{$password}'";
 						$login_query_result = mysqli_query($connect,$login_query);
 
-                        if($login_query_result){
+						$getNumRows = mysqli_num_rows($login_query_result);
+						if($getNumRows == 1){
+							$getUserRow = mysqli_fetch_assoc($login_query_result);
+							unset($getUserRow['password']);
+							$_SESSION = $getUserRow;	
+							header('location:../../dashboard/index.php');
+							exit;
+						}else{
+							echo '<div class="alert alert-danger h2 m-0 p-4" role="alert">
+                                    Login Failed!
+                                	</div>';
+						}
+                        /* if($login_query_result){
 							if(mysqli_num_rows($login_query_result)>0){
 								$row = mysqli_fetch_array($login_query_result,MYSQLI_ASSOC);
-								$_SESSION['username'] = $username;
-								$_SESSION['password'] = $password;
-								header( "Location: index.php");
+								$_SESSION['user_role'] = $row['1'];
+								header( "Location: ../../dashboard/index.php");
 							}else{
 								echo '<div class="alert alert-danger h2 m-0 p-4" role="alert">
                                     	Login Failed!
                                 	</div>';
 							}
-						}
-                	}
+						} */
+					}
+					
+					if(isset($_GET['logout']) && $_GET['logout'] == true){
+						session_destroy();
+						header("location:login.php");
+						exit;
+					}
 				?>
 			</div>
 		</div>

@@ -71,7 +71,7 @@
                         //Image Function
                         $image_function = explode('.',$brand_logo);
                         $file_ext = strtolower(end($image_function));
-                        $random_image_name  = substr(md5(time()),0,15).'.'.$file_ext;
+                        $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
                         $uploaded_image = "../uploads/".$random_image_name;
                         move_uploaded_file($brand_logo_temp,$uploaded_image);
 

@@ -1,4 +1,14 @@
 <?php include('includes/connectionClass.php'); ?>
+<?php 
+
+  session_start();
+	
+	if(!isset($_SESSION['id'],$_SESSION['user_role'])){
+		  header('location:../dist/login/login.php');
+		exit;
+	}		
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +21,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-32x32.png">
 </head>
 
 <body class="header-fixed">
@@ -30,7 +39,7 @@
 
         <ul class="nav ml-auto">
         </ul>
-        <a href="logout.php" class="button button-common button-logout">Logout</a>
+        <a href="../dist/login/login.php?logout=true" class="button button-common button-logout">Logout</a>
       </div>
     </div>
   </nav>  <!-- Main Body -->
@@ -139,7 +148,7 @@
     </div>
   </div>
   <script src="assets/script/core.js"></script>
-  <script src="assets/script/template.js"></script>
+  <script src="assets/script/custom.js"></script>
   <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
 </body>
 

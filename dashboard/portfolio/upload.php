@@ -73,6 +73,7 @@
 
                             /*MultiUpload Image & Youtube Videos */
                             if(isset($_POST['upload-portfolio'])){
+                                $permitted = array('jpg','jpeg','png','gif');
                                 $file='';
                                 $file_tmp='';
                                 $location="../uploads/";
@@ -80,8 +81,8 @@
                                 foreach($_FILES['brand-images']['name'] as $key=>$val){
                                     $file=$_FILES['brand-images']['name'][$key];
                                     $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
-                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,15).$file);
-                                    $data .=substr(md5(time()),0,15).$file." ";
+                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,20).$file);
+                                    $data .=substr(md5(time()),0,20).$file." ";
                                 }
                                 $brand_youtube_video_link = $_POST['brand-yt-link'];
                                 $brand_youtube_video_link_2 = $_POST['brand-yt-link_2'];

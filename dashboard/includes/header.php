@@ -13,7 +13,7 @@
 
         <ul class="nav ml-auto">
         </ul>
-        <a href="../logout.php" class="button button-common button-logout">Logout</a>
+        <a href="../../dist/login/login.php?logout=true" class="button button-common button-logout">Logout</a>
       </div>
     </div>
   </nav>

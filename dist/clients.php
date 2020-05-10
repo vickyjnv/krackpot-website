@@ -9,18 +9,21 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../dashboard/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../dashboard/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../dashboard/assets/images/favicon-32x32.png">
 </head>
 
 <body>
     <div class="section clients-section">
-        <nav class="navbar navbar-clients">
+        <nav class="navbar navbar-clients fixed-top">
             <?php include('includes/sidebar.php'); ?>
         </nav>
         <div id="section-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <?php include('includes/carousel-indicators.php'); ?>
             <div class="carousel-inner">
                 <div class="carousel-item container active">
-                    <div class="row section-info">
+                    <div class="row section-info section-info-viewport">
                         <div class="offset-1 col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 section-info-main">
                             <div class="section-info-main  animated fadeInLeft">
                                 <h1 class="section-info-text _title">

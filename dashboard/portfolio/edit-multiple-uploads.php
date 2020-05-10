@@ -39,7 +39,7 @@
                 <form action="#" method="POST" id="portfolio-form" name="form"
                     enctype="multipart/form-data" class="form-wrapper pt-4">
                     <fieldset class="section is-active">
-                    <h3 class="prev-text">Previously Uploaded Images</h3>
+                    <h3 class="prev-text">Previously Uploaded Image(s)</h3>
                     <?php 
                         $i="";
                         $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
@@ -67,7 +67,7 @@
                         $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
                         $fire=mysqli_query($connect,$query);
                         $rows_count = mysqli_num_rows($fire);
-                        if(!$rows_count){
+                        if($rows_count<=0){
                             echo "<h1 class='prev-text mt-8'>No Videos Uploaded</h1>";
                         }else{
                             while($resultsn=mysqli_fetch_assoc($fire)){   
@@ -83,21 +83,22 @@
                         <?php }} ?>
                         <div class="form-group">
                             <label for="yt-link"> Upload New Youtube Video Link (One)</label>
-                            <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
+                            <input type="text" name="brand-yt-link" id="yt-link" value='<?php echo $video  ?>' class="form-control">
                         </div>
                          <div class="form-group">
                             <label for="yt-link"> Upload New Youtube Video Link (Two)</label>
-                            <input type="text" name="brand-yt-link_2" id="yt-link_2" class="form-control">
+                            <input type="text" name="brand-yt-link_2" id="yt-link_2" value='<?php echo $video_2  ?>'  class="form-control">
                         </div>
                          <div class="form-group">
                             <label for="yt-link"> Upload New Youtube Video Link (Three)</label>
-                            <input type="text" name="brand-yt-link_3" id="yt-link_3" class="form-control">
+                            <input type="text" name="brand-yt-link_3" id="yt-link_3" value='<?php echo $video_3  ?>'  class="form-control">
                         </div>
                         <div class="button">
                             <input type="submit" name="upload-portfolio" value="Update Files" class="form-wrapper-btn mt-8">
                         </div>
 
                         <?php
+                                            
 
                         /*Getting Last Uploaded ID */
                             $selectquery="SELECT id FROM krackpottb_demo_1 ORDER BY id DESC LIMIT 1";
@@ -109,31 +110,38 @@
                                 echo "Error";
                             }
 
+
                             /*MultiUpload Image & Youtube Videos */
                             if(isset($_POST['upload-portfolio'])){
+                                $permitted = array('jpg','jpeg','png','gif');
                                 $file='';
                                 $file_tmp='';
                                 $location="../uploads/";
                                 $data='';
-                                foreach($_FILES['brand-images']['name'] as $key=>$val){
-                                    $file=$_FILES['brand-images']['name'][$key];
-                                    $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
-                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,15).$file);
-                                    $data .=substr(md5(time()),0,15).$file." ";
-                                }
                                 $brand_youtube_video_link = $_POST['brand-yt-link'];
                                 $brand_youtube_video_link_2 = $_POST['brand-yt-link_2'];
                                 $brand_youtube_video_link_3 = $_POST['brand-yt-link_3'];
-                                
-                                $add_query_attachments_table = "UPDATE attachments SET images = '{$data}', video = '{$brand_youtube_video_link}'
-                                , video_2 = '{$brand_youtube_video_link_2}', video_3 = '{$brand_youtube_video_link_3}' WHERE attachment_id = '{$id}'";
+                                if((!($_FILES['brand-images']['name']))){
+                                    $add_query_attachments_table = "UPDATE attachments SET video = '{$brand_youtube_video_link}'
+                                    , video_2 = '{$brand_youtube_video_link_2}', video_3 = '{$brand_youtube_video_link_3}' WHERE attachment_id = '{$id}'";
+                                }else{
+                                    foreach($_FILES['brand-images']['name'] as $key=>$val){
+                                        $file=$_FILES['brand-images']['name'][$key];
+                                        $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
+                                        move_uploaded_file($file_tmp,$location.substr(md5(time()),0,20).$file);
+                                        $data .=substr(md5(time()),0,20).$file." ";
+                                    }
+                                    $add_query_attachments_table = "UPDATE attachments SET images = '{$data}', video = '{$brand_youtube_video_link}'
+                                    , video_2 = '{$brand_youtube_video_link_2}', video_3 = '{$brand_youtube_video_link_3}' WHERE attachment_id = '{$id}'";
+                                }
+
                                 $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
                                 if(!$add_query_attachments_table_result){
                                     die(mysqli_error($connect));
                                 }else{
-                                    echo '<div class="alert alert-success mt-3" role="alert">
+                                    echo '<div class="alert alert-success mt-3 h2" role="alert">
                                                 Files Updated Succesfully
-                                            </div>';
+                                          </div>';
                                 }
                             }
                         ?>

@@ -17,7 +17,8 @@ body {
 
 .portfolio-section-list-main .clients-img {
   width: 10rem;
-  height: auto; }
+  height: auto;
+  margin: 5rem 0 2rem 0; }
 
 .portfolio-section-list-main .clients-description {
   color: #626262;
@@ -271,7 +272,8 @@ a,
     grid-template-columns: repeat(7, 1fr);
     align-items: center;
     justify-content: space-around;
-    padding: 2rem 0; }
+    padding: 2rem 0 0 0;
+    margin: 2rem 0 0 0; }
     .section-info-clients .clients-row .clients-row-inner-columns {
       display: flex;
       justify-content: center;
@@ -285,6 +287,9 @@ a,
         max-width: 10rem;
         width: 100%;
         height: auto; }
+
+.section-info-viewport {
+  min-height: 100vh !important; }
 
 .section-info-start {
   justify-content: center;
@@ -500,11 +505,12 @@ a,
     width: auto !important;
     right: 60%; }
   .col-gap {
-    margin: 3rem 0; }
+    padding: 3rem 0 0 0; }
   .carousel-actions {
-    margin: 1rem 0;
+    padding: 2rem 0 1rem 0 !important;
     position: relative;
-    height: 3rem; }
+    height: 6rem;
+    background-color: #f1f1f1; }
   .slick-prev {
     left: 0 !important; }
   .slick-next {
@@ -514,7 +520,7 @@ a,
     .back-to-portfolio .back-to-portfolio-btn {
       width: fit-content;
       display: block;
-      margin: -3rem auto -2rem auto; } }
+      margin: -2rem auto -3rem auto; } }
 
 @media screen and (max-width: 32.81rem) and (min-width: 21.93rem) {
   .offset-1 {
@@ -568,9 +574,10 @@ a,
   .col-gap {
     margin: 3rem 0 !important; }
   .carousel-actions {
-    margin: 1rem 0;
+    padding: 1rem 0 !important;
     position: relative;
-    height: 3rem; }
+    height: 5rem;
+    background-color: #f1f1f1; }
   .slick-prev {
     left: 0 !important; }
   .slick-next {
@@ -580,7 +587,7 @@ a,
     .back-to-portfolio .back-to-portfolio-btn {
       width: fit-content;
       display: block;
-      margin: -3rem auto -2rem auto; } }
+      margin: -2rem auto -3rem auto; } }
 
 @media screen and (max-width: 47.93rem) and (min-width: 32.81rem) {
   .offset-1 {
@@ -742,7 +749,7 @@ a,
       display: none; }
       .services-container .section .section-list li {
         padding: 0.5rem;
-        font-size: 1rem;
+        font-size: 1.5rem;
         text-align: center; }
     .services-container .section .content {
       z-index: 2; }
@@ -789,7 +796,7 @@ a,
     background-color: #626262;
     color: #f8f8ff;
     padding: 0.4rem 0.7rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     border-radius: 100px;
     position: relative; }
     .back-to-portfolio .back-to-portfolio-btn:hover {
