@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Upload More Images</title>
+    <title>Edit Portfolio - Images </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/apple-touch-icon.png">
@@ -23,7 +23,7 @@
                 <div class="content-viewport">
                     <div class="row">
                         <div class="col-12 py-5">
-                            <h4 class="dashboard-header">Upload New Images</h4>
+                            <h4 class="dashboard-header">Update Uploaded Images</h4>
                             </p>
                         </div>
                     </div>
@@ -32,13 +32,13 @@
            <div id="portfolio-section">
                 <?php
                     //Getting Id
-                    if(isset($_GET['add'])){
-                        $id = $_GET["add"];
+                    if(isset($_GET['edit'])){
+                        $id = $_GET["edit"];
                     }
                 ?>
                 <form action="#" method="POST" id="portfolio-form" name="form"
                     enctype="multipart/form-data" class="form-wrapper pt-4">
-                    <h3 class="prev-text">Previously Uploaded Images</h3>
+                    <h3 class="prev-text">Previously Uploaded Image(s)</h3>
                     <?php 
                         $i="";
                         $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
@@ -61,11 +61,13 @@
                                     multiple>
                             </div>
                         </div>
-
-                         <div class="button">
-                            <input type="submit" name="add-images" value="Upload New Images" class="form-wrapper-btn mt-8">
+    
+                        <div class="button">
+                            <input type="submit" name="upload-portfolio" value="Update Images" class="form-wrapper-btn mt-8">
                         </div>
+
                         <?php
+                                            
 
                         /*Getting Last Uploaded ID */
                             $selectquery="SELECT id FROM krackpottb_demo_1 ORDER BY id DESC LIMIT 1";
@@ -73,13 +75,13 @@
                             $row = $result->fetch_assoc();
                             if ($row > 0) {
                                 $id = $row['id'];
-                                echo $id;
                             } else {
                                 echo "Error";
                             }
 
-                            /*MultiUpload Image */
-                            if(isset($_POST['add-images'])){
+                            /*MultiUpload Image & Youtube Videos */
+                            if(isset($_POST['upload-portfolio'])){
+                                $permitted = array('jpg','jpeg','png','gif');
                                 $file='';
                                 $file_tmp='';
                                 $location="../uploads/";
@@ -87,21 +89,22 @@
                                 foreach($_FILES['brand-images']['name'] as $key=>$val){
                                     $file=$_FILES['brand-images']['name'][$key];
                                     $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
-                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,15).$file);
-                                    $data .=substr(md5(time()),0,15).$file." ";
+                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,20).$file);
+                                    $data .=substr(md5(time()),0,20).$file." ";
                                 }
-                                
-                                $add_query_attachments_table = "INSERT INTO attachments (images) VALUES ('{$data}') WHERE attachment_id = '{$id}'";
+                                    $add_query_attachments_table = "UPDATE attachments SET images = '{$data}' WHERE attachment_id = '{$id}'";
+
                                 $add_query_attachments_table_result = mysqli_query($connect,$add_query_attachments_table);
                                 if(!$add_query_attachments_table_result){
                                     die(mysqli_error($connect));
                                 }else{
-                                    echo '<div class="alert alert-success mt-3" role="alert">
-                                                New Images Updated Succesfully
-                                            </div>';
+                                    echo '<div class="alert alert-success mt-3 h2" role="alert">
+                                                Images Updated Succesfully
+                                          </div>';
                                 }
                             }
                         ?>
+                    </fieldset>
                 </form>
             </div>
         </div>

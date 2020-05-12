@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit Portfolio (Information)</title>
+    <title>Update Client Information</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/apple-touch-icon.png">
@@ -22,7 +22,7 @@
                 <div class="content-viewport">
                     <div class="row">
                         <div class="col-12 py-5">
-                            <h4 class="dashboard-header">Update Portfolio</h4>
+                            <h4 class="dashboard-header">Update Client</h4>
                             </p>
                         </div>
                     </div>
@@ -34,74 +34,57 @@
                     //Updating Query
                     if(isset($_GET['edit'])){
                         $id = $_GET["edit"];
-                        $all_rows = "SELECT * FROM krackpottb_demo_1 WHERE id = $id";
+                        $all_rows = "SELECT * FROM clients_tb WHERE id = $id";
                         $all_rows_result = mysqli_query($connect, $all_rows);
 
                         while($row = mysqli_fetch_assoc($all_rows_result)){
                             
-                            $brand_logo = $row['brand_logo'];
-                            $brand_description = $row['brand_description'];
-                            $brand_work_header = $row['brand_work_header'];
-                            $brand_work_description = $row['brand_work_description'];
+                           $client_logo = $row['client_logo'];
+                           $client_name = $row['client_name'];
                         }
                     }
                 ?>
 
-                <form action="#" method="POST" id="portfolio-form" name="form" enctype="multipart/form-data"
+                <form action="#" method="POST" id="clients-form" name="form" enctype="multipart/form-data"
                     class="form-wrapper pt-4 mt-4">
-                    <fieldset class="section is-active">
                         <div class="form-group">
                             <h3 class="prev-text">Previously Uploaded Logo</h3>
-                            <img src="../uploads/<?php echo $brand_logo;?>" class="uploaded-image" >
-                            <label for="brand-logo">Upload New Logo</label>
+                            <img src="<?php echo $client_logo;?>" class="uploaded-image" >
+                            <label for="client-logo">Upload New Logo</label>
                             <div class="file-upload-wrapper" data-text="Select your file!">
-                                <input name="brand-logo" type="file" class="file-upload-field" id="brand-logo">
+                                <input name="client-logo" type="file" class="file-upload-field" id="client-logo">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="brand-logo">Brand Description</label>
-                            <textarea name="brand-description" id="description-editor" class="form-control" required><?php echo (($brand_description)); ?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="work-header"> Work Details (i.e Design Or Developed)</label>
-                            <input type="text" name="brand-work-header" id="work-header" value="<?php echo $brand_work_header ?>" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="work-description"> Work Description</label>
-                            <input type="text" name="brand-work-description" id="work-description" value="<?php echo $brand_work_description ?>" class="form-control" required>
+                            <label for="client-name"> Client Name</label>
+                            <input type="text" name="client-name" id="client-name" value="<?php echo $client_name; ?>" class="form-control" >
                         </div>
                         <div class="button">
-                            <input type="submit" name="update" value="Update Information"
+                            <input type="submit" name="update-client" value="Upload Client Information"
                                 class="form-wrapper-btn mt-8">
                         </div>
-                    </fieldset>
                 </form>
 
                 <?php 
 
-                    if(isset($_POST['update'])){
-
-                        $brand_description = $_POST['brand-description'];
-                        $brand_work_header = $_POST['brand-work-header'];
-                        $brand_work_description = $_POST['brand-work-description'];
+                    if(isset($_POST['update-client'])){
 
                         $permitted = array('jpg','jpeg','png','gif');
-                        $brand_logo = $_FILES['brand-logo']['name'];
-                        $brand_logo_temp = $_FILES['brand-logo']['tmp_name'];
-                        $image_function = explode('.',$brand_logo);
+                        $client_logo = $_FILES['client-logo']['name'];
+                        $client_logo_temp = $_FILES['client-logo']['tmp_name'];
+                        $image_function = explode('.',$client_logo);
                         $file_ext = strtolower(end($image_function));
                         $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
-                        $uploaded_image = "../uploads/".$random_image_name;
-                        move_uploaded_file($brand_logo_temp,$uploaded_image);
-
+                        $uploaded_image = "clients_uploads/".$random_image_name;
+                        move_uploaded_file($client_logo_temp,$uploaded_image);
+                        $date = date('d-m-y');
 
                         /*If No Image File Is Selected */
-                        if ((!($_FILES['brand-logo']['name']))){
-                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_description = '{$brand_description}' 
-                            ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
+                        if ((!($_FILES['client-logo']['name']))){
+                            $update_post_query ="UPDATE clients_tb SET client_name = '{$client_name}'  WHERE id = '{$id}'";
                         }else{
-                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_logo = '{$uploaded_image}', brand_description = '{$brand_description}' 
-                            ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
+                            $update_post_query ="UPDATE clients_tb SET client_logo = '{$client_logo}', client_name = '{$client_name}' 
+                             WHERE id = '{$id}'";
                         }
 
                         $update_post_query_result = mysqli_query($connect,$update_post_query);
@@ -110,7 +93,7 @@
                             die('Query Failed');
                         }else{
                             echo '<div class="alert alert-success h2 mt-3" role="alert">
-                                    Portfolio Information Updated Succesfully!
+                                    Client Information Updated Succesfully
                                 </div>';
                         }
                     }

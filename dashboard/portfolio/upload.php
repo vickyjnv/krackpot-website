@@ -95,8 +95,8 @@
                                 if(!$add_query_attachments_table_result){
                                     die(mysqli_error($connect));
                                 }else{
-                                    echo '<div class="alert alert-success mt-3" role="alert">
-                                                Element Added Successfully!
+                                    echo '<div class="alert alert-success h2 mt-3" role="alert">
+                                                Portfolio Uploaded
                                             </div>';
                                 }
                             }

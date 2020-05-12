@@ -83,8 +83,11 @@
                             }
                         ?>
                     </td>
-                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common b-blue mb-1">Edit Information</a>
-                    <a href="edit-multiple-uploads.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Images & Videos</a>
+                    <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common">Edit Information</a>
+                    <hr>
+                    <a href="edit-images.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Images</a>
+                    <hr>
+                    <a href="edit-videos.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Videos</a>
                     <hr>
                     <a href="delete.php?id=<?php echo $row['id'];?>" class="btn-common btn-delete btn-block" onClick="return confirm('Are you sure you want to delete?');">DELETE</a></td>
                 </tr>

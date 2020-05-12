@@ -6,8 +6,6 @@
   box-sizing: border-box;
   font-family: 'Lato',
     sans-serif;
-
-
 }
 
 body {
@@ -1463,16 +1461,12 @@ input.input100 {
 
 .btn-common {
   position: relative;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   border: none;
-  border-radius: 4px;
-  padding: 0 16px;
-  min-width: 64px;
-  height: 36px;
-  vertical-align: middle;
+  border-radius: 5px;
+  padding: 15px 10px;
   text-align: center;
-  text-overflow: ellipsis;
   color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
   background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -1480,12 +1474,13 @@ input.input100 {
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   font-size: 16px;
   font-weight: 500;
-  line-height: 36px;
-  overflow: hidden;
+  line-height: 20px;
   outline: none;
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
+
+
 
 .btn-delete {
   background-color: #dc3545 !important;
@@ -1507,21 +1502,7 @@ input.input100 {
   transition: opacity 0.2s;
 }
 
-/* Ripple */
-.btn-common::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 50%;
-  padding: 50%;
-  width: 32px;
-  height: 32px;
-  background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-  transition: opacity 1s, transform 0.5s;
-}
+
 
 .btn-common:hover,
 .btn-common:focus {
@@ -1549,21 +1530,6 @@ input.input100 {
   opacity: 0.32;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0s;
-}
-
-.btn-common:disabled {
-  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
-  background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.12);
-  box-shadow: none;
-  cursor: initial;
-}
-
-.btn-common:disabled::before {
-  opacity: 0;
-}
-
-.btn-common::after {
-  opacity: 0;
 }
 
 
@@ -1667,4 +1633,43 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
   padding: 0 10px 10px 0;
   height: 200px;
   display: inline-block;
+}
+
+/*Clients CSS*/
+#clients_table {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.display-inline {
+  display: inline-block !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#clients_table_length {
+  margin: 20px 0 8px 0 !important;
+  display: inline-block !important;
+}
+
+#clients_table_filter {
+  margin: 20px 0 8px 0 !important;
+  display: inline-block !important;
+}
+
+#clients_table tr,
+td {
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  font-size: 17px !important;
+  margin: 0;
+  padding: 10px 0;
+  color: #5c5b5b !important;
+}
+
+#clients_table_info {
+  font-size: 18px;
+  color: #444 !important;
+  margin: 8px 0 0 0 !important;
+  padding: 0 !important;
 }

@@ -16,11 +16,11 @@
           </a>
         </li>
         <li>
-          <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
+          <a href="#portfolio" data-toggle="collapse" aria-expanded="false">
             <span class="link-title">Portfolio Pages</span>
             <i class="far fa-clipboard link-icon fa-fw"></i>
           </a>
-          <ul class="collapse navigation-submenu" id="sample-pages">
+          <ul class="collapse navigation-submenu" id="portfolio">
             <li>
               <a href="add-portfolio.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
                 Portfolio</a>
@@ -31,5 +31,19 @@
             </li>
           </ul>
         </li>
+        <li>
+              <a href="#clients" data-toggle="collapse" aria-expanded="false">
+            <span class="link-title">Clients Pages</span>
+            <i class="fas fa-user-tie link-icon fa-fw"></i>
+          </a>
+          <ul class="collapse navigation-submenu" id="clients">
+            <li>
+              <a href="../clients/add-clients.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
+                Clients</a>
+            </li>
+            <li>
+              <a href="../clients/view-all-clients.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
+                Clients</a>
+            </li>
       </ul>
     </div>
