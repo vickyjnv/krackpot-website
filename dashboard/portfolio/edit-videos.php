@@ -1,4 +1,4 @@
-<?php include('db.php') ?>
+<?php include("../includes/connectionClass.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +39,7 @@
                 <form action="#" method="POST" id="portfolio-form" name="form"
                     enctype="multipart/form-data" class="form-wrapper pt-4">
                         <?php
-                        $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
+                        $query="SELECT * FROM krackpot_tb a, attachments b WHERE a.id=b.attachment_id AND a.id = $id";
                         $fire=mysqli_query($connect,$query);
                         $rows_count = mysqli_num_rows($fire);
                         if($rows_count<=0){
@@ -69,14 +69,14 @@
                             <input type="text" name="brand-yt-link_3" id="yt-link_3" value='<?php echo $video_3  ?>'  class="form-control">
                         </div>
                         <div class="button">
-                            <input type="submit" name="upload-portfolio" value="Update Files" class="form-wrapper-btn mt-8">
+                            <input type="submit" name="upload-portfolio" value="Update Videos" class="form-wrapper-btn mt-8">
                         </div>
 
                         <?php
                                             
 
                         /*Getting Last Uploaded ID */
-                            $selectquery="SELECT id FROM krackpottb_demo_1 ORDER BY id DESC LIMIT 1";
+                            $selectquery="SELECT id FROM krackpot_tb ORDER BY id DESC LIMIT 1";
                             $result = mysqli_query($connect,$selectquery);
                             $row = $result->fetch_assoc();
                             if ($row > 0) {

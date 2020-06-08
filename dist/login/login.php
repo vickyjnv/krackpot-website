@@ -48,7 +48,7 @@
 						$username = mysqli_real_escape_string($connect,$username);
 						$password = mysqli_real_escape_string($connect,$password);
 
-						$login_query = "SELECT * FROM login WHERE username = '{$username}' AND password = '{$password}'";
+						$login_query = "SELECT * FROM login_tb WHERE username = '{$username}' AND password = '{$password}'";
 						$login_query_result = mysqli_query($connect,$login_query);
 
 						$getNumRows = mysqli_num_rows($login_query_result);

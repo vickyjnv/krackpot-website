@@ -68,11 +68,11 @@
           </a>
           <ul class="collapse navigation-submenu" id="portfolio">
             <li>
-              <a href="portfolio/add-portfolio.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
+              <a href="portfolio/add-portfolio.php"><i class="fas fa-plus-circle fa-fw"></i> Add
                 Portfolio</a>
             </li>
             <li>
-              <a href="portfolio/view-portfolio.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
+              <a href="portfolio/view-portfolio.php"><i class="fas fa-briefcase fa-fw"></i> View All
                 Portfolios</a>
             </li>
           </ul>
@@ -86,11 +86,11 @@
           </a>
           <ul class="collapse navigation-submenu" id="clients">
             <li>
-              <a href="clients/add-clients.php" target="_blank"><i class="fas fa-plus-circle fa-fw"></i> Add
+              <a href="clients/add-clients.php"><i class="fas fa-plus-circle fa-fw"></i> Add
                 Clients</a>
             </li>
             <li>
-              <a href="clients/view-clients.php" target="_blank"><i class="fas fa-briefcase fa-fw"></i> View All
+              <a href="clients/view-all-clients.php"><i class="fas fa-briefcase fa-fw"></i> View All
                 Clients</a>
             </li>
       </ul>
@@ -105,35 +105,36 @@
 
             </div>
           </div>
+          <h1 class="grid-header">Portfolio</h1>
           <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
                    <?php
                         
-                      $display_no_of_rows_query = "SELECT * FROM krackpottb_demo_1";
+                      $display_no_of_rows_query = "SELECT * FROM krackpot_tb";
                       $display_no_of_rows_query_result = mysqli_query($connect,$display_no_of_rows_query);
 
                       $rows_count = mysqli_num_rows($display_no_of_rows_query_result);                        
                     ?>
-                    <p class="h3">All Portfolios (<?php echo $rows_count ?>)</p>
+                    <p class="grid-title">All Portfolios (<?php echo $rows_count ?>)</p>
                     <img src="assets/images/work.svg" alt="" height="80">
                   </div>  
                 </div>
                 </div>
               </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
-                    <p class="h3">Images Uploaded </p>
+                    <p class="grid-title">Images Uploaded </p>
                     <img src="assets/images/photo.svg" alt="" height="80">
                   </div>
               </div>
             </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div class="grid">
                 <div class="grid-body text-gray">
                   <div class="d-flex justify-content-between align-items-center">
@@ -142,14 +143,37 @@
                       $display_no_of_rows_query_result = mysqli_query($connect,$display_no_of_rows_query);
                       $rows_count_video = mysqli_num_rows($display_no_of_rows_query_result);                                             
                     ?>
-                    <p class="h3">Videos Uploaded (<?php echo $rows_count ?>)</p>
+                    <p class="grid-title">Videos Uploaded (<?php echo $rows_count ?>)</p>
                     <img src="assets/images/video.svg" alt="" height="80">
                   </div>
                  
                 </div>
               </div>
             </div>
-            <footer class="footer">
+          </div>
+                </div>
+              </div>
+            <h1 class="grid-header">Clients</h1>
+          <div class="row">
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="grid">
+                <div class="grid-body text-gray">
+                  <div class="d-flex justify-content-between align-items-center">
+                   <?php
+                        
+                      $display_no_of_rows_query = "SELECT * FROM clients_tb";
+                      $display_no_of_rows_query_result = mysqli_query($connect,$display_no_of_rows_query);
+
+                      $rows_count = mysqli_num_rows($display_no_of_rows_query_result);                        
+                    ?>
+                    <p class="grid-title">All Clients (<?php echo $rows_count ?>)</p>
+                    <img src="assets/images/client.svg" alt="" height="80">
+                  </div>  
+                </div>
+                </div>
+              </div>
+              </div>
+            <!-- <footer class="footer">
               <div class="row">
                 <div class="col-sm-12 text-center text-md-left mt-3 mt-sm-0">
                   <h4 class="text-muted d-block">Copyright © 2020 <a href="http://www.krackpot.co.in"
@@ -157,7 +181,7 @@
                   <h5 class="text-gray mt-2">Handcrafted With <i class="fas fa-heart fa-1x fa-fw"></i></h5>
                 </div>
               </div>
-            </footer>
+            </footer> -->
           </div>
         </div>
       </div>

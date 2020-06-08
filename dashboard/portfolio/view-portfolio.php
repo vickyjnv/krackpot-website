@@ -1,4 +1,4 @@
-<?php include("db.php"); ?>
+<?php include("../includes/connectionClass.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <table id="portfolio_table" class="table table-striped table-bordered table-hover w-100" >
+            <table id="portfolio_table" class="table table-bordered table-hover w-100" >
                <thead class="thead">
                     <tr>
                         <th>ID</th>
@@ -47,20 +47,20 @@
                 </thead>
                 <tbody>
                     <?php
-                        $query ="SELECT * FROM krackpottb_demo_1 ORDER BY id DESC";
+                        $query ="SELECT * FROM krackpot_tb ORDER BY id DESC";
                         $sql = mysqli_query($connect,$query);
                         while($row = mysqli_fetch_array($sql)){
         	        ?>
                 <tr>
                     <td><?php echo $row["id"]; ?></td>
-                    <td><img src='../uploads/<?php echo $row["brand_logo"];?>' class="uploaded-image"></td>
-                    <td width="250"><?php echo strip_tags($row["brand_description"]);?></td>
+                    <td><img src='<?php echo $row["brand_logo"];?>' class="uploaded-image"></td>
+                    <td><?php echo strip_tags($row["brand_description"]);?></td>
                     <td><?php echo $row["brand_work_header"];?></td>
-                    <td width="150"><?php echo $row["brand_work_description"];?></td>
+                    <td ><?php echo $row["brand_work_description"];?></td>
                     
                     <?php 
                         $i="";
-                        $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
+                        $query="SELECT * FROM krackpot_tb a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
                         $fire=mysqli_query($connect,$query);
                         while($resultsn=mysqli_fetch_assoc($fire)){
                             $i='';
@@ -69,7 +69,7 @@
                             $count=count($tempr)-1;
                             $imgs = '';
                             for($i=0;$i<$count;++$i){
-                                $imgs .= "<img src='../uploads/".$tempr[$i]."' class='img-thumbnail'>";
+                                $imgs .= "<img src='uploads/".$tempr[$i]."' class='img-thumbnail'>";
                             }
                     ?>
                     <td><?php echo $imgs; ?></td>
@@ -85,11 +85,12 @@
                     </td>
                     <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common">Edit Information</a>
                     <hr>
-                    <a href="edit-images.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Images</a>
+                    <a href="add-images.php?add=<?php echo $row['id']; ?>" class="btn-block btn-common ">Add / Replace Images</a>
+                    <a href="delete-images.php?delete=<?php echo $row['id']; ?>" class="btn-block btn-delete btn-common ">Delete Uploaded Images</a>
                     <hr>
                     <a href="edit-videos.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common ">Edit Videos</a>
                     <hr>
-                    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn-common btn-delete btn-block" onClick="return confirm('Are you sure you want to delete?');">DELETE</a></td>
+                    <a href="delete.php?id=<?php echo $row['id'];?>" class="btn-common btn-delete btn-block" onClick="return confirm('Are you sure you want to delete?');">Delete All</a></td>
                 </tr>
             <?php } ?>
                 </tbody>

@@ -1,5 +1,5 @@
 <?php include_once("../dashboard/includes/connectionClass.php");
-    $display_query="SELECT * FROM krackpottb_demo_1 ORDER BY id DESC";
+    $display_query="SELECT * FROM krackpot_tb ORDER BY id DESC";
     $run_query=mysqli_query($connect,$display_query);
 ?>
 
@@ -19,6 +19,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../dashboard/assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../dashboard/assets/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../dashboard/assets/images/favicon-32x32.png">
+
+    <style>
+    .slick-track .slick-track { 
+        display: none; 
+    }
+
+    </style>
 </head>
 
 <body>
@@ -37,7 +44,7 @@
                             <div class="offset-1 col-lg-5 col-xl-5 col-md-12 col-sm-12 col-xs-12 section-info-main">
                                 <div class="portfolio-section-list-main animated fadeInLeft">
                                 
-                                    <img src="../dashboard/uploads/<?php echo $row['brand_logo'];?>" class="clients-img">
+                                    <img src="../dashboard/portfolio/<?php echo $row['brand_logo'];?>" class="clients-img">
                                     <div class="clients-description"><?php echo $row['brand_description'];?></div>
 
                                     <h1 class="work-text -title"><?php echo $row['brand_work_header'];?></h1>
@@ -51,18 +58,18 @@
                                         
                                             <?php 
                                                 $i="";
-                                                $query="SELECT * FROM krackpottb_demo_1 a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
+                                                $query="SELECT * FROM krackpot_tb a, attachments b WHERE a.id=b.attachment_id AND a.id = ".$row['id'];
                                                 $fire=mysqli_query($connect,$query);
                                                 $data=mysqli_fetch_assoc($fire);
                                                 $res=$data['images'];
                                                 $res=explode(" ",$res);
                                                 $count=count($res)-1;
                                             
-                                            
+
                                                 /*Image Loop */
                                                 for($i=0;$i<$count;++$i){
                                                 ?>
-                                                <img src="../dashboard/uploads/<?php echo $res[$i] ?>" class="img-fluid rounded clients-slider-img"/>
+                                                <img src="../dashboard/portfolio/uploads/<?php echo $res[$i] ?>" class="img-fluid rounded clients-slider-img"/>
                                                 <?php }
                                                  
                                                     /*Videos */
@@ -71,13 +78,10 @@
                                                     $video_3 = $data['video_3'];
                                                 ?>
                                                 <div class="iframe-container">
-                                                    <?php echo $video; ?>
                                                 </div>
                                                 <div class="iframe-container">
-                                                    <?php echo $video_2; ?>
                                                 </div>
                                                 <div class="iframe-container">
-                                                    <?php echo $video_3; ?>
                                                 </div>
                                     </div>
                                 </div>
@@ -85,6 +89,10 @@
                         </div>
                     </div>
                      <?php } } ?>
+                </div>
+
+                <div>
+                
                 </div>
                     <div class="carousel-actions">
                         <div class="row p-0 m-0">
@@ -147,6 +155,8 @@
         $('.clients-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
             $('.slick-current iframe').attr('src', $('.slick-current iframe').attr('src'));
         });
+
+        $("#clients-slider").slick("unslick");
     </script>
 </body>
 

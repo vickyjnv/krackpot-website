@@ -34,7 +34,7 @@
                     //Updating Query
                     if(isset($_GET['edit'])){
                         $id = $_GET["edit"];
-                        $all_rows = "SELECT * FROM krackpottb_demo_1 WHERE id = $id";
+                        $all_rows = "SELECT * FROM krackpot_tb WHERE id = $id";
                         $all_rows_result = mysqli_query($connect, $all_rows);
 
                         while($row = mysqli_fetch_assoc($all_rows_result)){
@@ -52,7 +52,7 @@
                     <fieldset class="section is-active">
                         <div class="form-group">
                             <h3 class="prev-text">Previously Uploaded Logo</h3>
-                            <img src="../uploads/<?php echo $brand_logo;?>" class="uploaded-image" >
+                            <img src="<?php echo $brand_logo;?>" class="uploaded-image" >
                             <label for="brand-logo">Upload New Logo</label>
                             <div class="file-upload-wrapper" data-text="Select your file!">
                                 <input name="brand-logo" type="file" class="file-upload-field" id="brand-logo">
@@ -91,16 +91,17 @@
                         $image_function = explode('.',$brand_logo);
                         $file_ext = strtolower(end($image_function));
                         $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
-                        $uploaded_image = "../uploads/".$random_image_name;
+                        $location="uploads/";
+                        $uploaded_image = $location.$random_image_name;
                         move_uploaded_file($brand_logo_temp,$uploaded_image);
 
 
                         /*If No Image File Is Selected */
                         if ((!($_FILES['brand-logo']['name']))){
-                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_description = '{$brand_description}' 
+                            $update_post_query ="UPDATE krackpot_tb SET brand_description = '{$brand_description}' 
                             ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
                         }else{
-                            $update_post_query ="UPDATE krackpottb_demo_1 SET brand_logo = '{$uploaded_image}', brand_description = '{$brand_description}' 
+                            $update_post_query ="UPDATE krackpot_tb SET brand_logo = '{$uploaded_image}', brand_description = '{$brand_description}' 
                             ,brand_work_header = '{$brand_work_header}',brand_work_description = '{$brand_work_description}' WHERE id = '{$id}'";
                         }
 

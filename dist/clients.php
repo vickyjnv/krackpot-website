@@ -1,3 +1,5 @@
+<?php include('../dashboard/includes/connectionClass.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +38,7 @@
                                 </h3>
                             </div>
                         </div>
-                        <div
-                            class="col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 offset-1 section-mobile-hide section-info-main">
+                        <div class="col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 offset-1 section-mobile-hide section-info-main">
                             <div class="animated fadeInRight ">
                                 <img src="images/clients.svg" alt="clients" class="section-info-img">
                                 <h1 class="section-info-head">Clients</h1>
@@ -47,10 +48,22 @@
                 </div>
                 <div class="carousel-item">
                     <div class="row section-info">
-                        <div class="col-12 container-fluid section-info-clients ">
-                            <div class="  animated fadeInRight">
+                        <div class="col-12 container-fluid section-info-viewport section-info-clients ">
+                            <div class="animated fadeInRight">
                                 <div class="clients-row">
-                                    <div class="clients-row-inner-columns">
+                                <?php 
+                                    $display_query = "SELECT * FROM clients_tb";
+                                    $display_query_result = mysqli_query($connect,$display_query);
+
+                                    while($row = mysqli_fetch_array($display_query_result)){
+                                        $client_logo = $row['client_logo'];
+                                        $client_name = $row['client_name'];
+                                        ?>
+                                        <div class="clients-row-inner-columns">
+                                            <img src="../dashboard/clients/<?php echo $client_logo; ?>" alt="" class="clients-img">
+                                        </div>
+                                    <?php } ?>
+                                    <!-- <div class="clients-row-inner-columns">
                                         <img src="images/clients/01.png" alt="" class="clients-img">
                                     </div>
                                     <div class="clients-row-inner-columns">
@@ -103,7 +116,7 @@
                                     </div>
                                     <div class="clients-row-inner-columns">
                                         <img src="images/clients/18.png" alt="" class="clients-img">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -114,7 +127,6 @@
         </div>
     </div>
     <?php include('includes/footer.php'); ?>
-
 </body>
 
 </html>

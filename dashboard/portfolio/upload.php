@@ -62,7 +62,7 @@
                         <?php
 
                         /*Getting Last Uploaded ID */
-                            $selectquery="SELECT id FROM krackpottb_demo_1 ORDER BY id DESC LIMIT 1";
+                            $selectquery="SELECT id FROM krackpot_tb ORDER BY id DESC LIMIT 1";
                             $result = mysqli_query($connect,$selectquery);
                             $row = $result->fetch_assoc();
                             if ($row > 0) {
@@ -76,13 +76,13 @@
                                 $permitted = array('jpg','jpeg','png','gif');
                                 $file='';
                                 $file_tmp='';
-                                $location="../uploads/";
+                                $location="uploads/";
                                 $data='';
                                 foreach($_FILES['brand-images']['name'] as $key=>$val){
                                     $file=$_FILES['brand-images']['name'][$key];
                                     $file_tmp=$_FILES['brand-images']['tmp_name'][$key];
-                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,20).$file);
-                                    $data .=substr(md5(time()),0,20).$file." ";
+                                    move_uploaded_file($file_tmp,$location.substr(md5(time()),0,30).$file);
+                                    $data .=substr(md5(time()),0,30).$file." ";
                                 }
                                 $brand_youtube_video_link = $_POST['brand-yt-link'];
                                 $brand_youtube_video_link_2 = $_POST['brand-yt-link_2'];

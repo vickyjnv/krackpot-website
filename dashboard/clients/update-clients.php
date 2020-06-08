@@ -72,18 +72,21 @@
                         $permitted = array('jpg','jpeg','png','gif');
                         $client_logo = $_FILES['client-logo']['name'];
                         $client_logo_temp = $_FILES['client-logo']['tmp_name'];
+                        $client_name = $_POST['client-name'];
+                        $date = date('d-m-y');
+
+                        //Image Function
                         $image_function = explode('.',$client_logo);
                         $file_ext = strtolower(end($image_function));
-                        $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
+                        $random_image_name  = substr(md5(time()),0,30).'.'.$file_ext;
                         $uploaded_image = "clients_uploads/".$random_image_name;
                         move_uploaded_file($client_logo_temp,$uploaded_image);
-                        $date = date('d-m-y');
 
                         /*If No Image File Is Selected */
                         if ((!($_FILES['client-logo']['name']))){
-                            $update_post_query ="UPDATE clients_tb SET client_name = '{$client_name}'  WHERE id = '{$id}'";
+                            $update_post_query ="UPDATE clients_tb SET client_name = '{$client_name}' WHERE id = '{$id}'";
                         }else{
-                            $update_post_query ="UPDATE clients_tb SET client_logo = '{$client_logo}', client_name = '{$client_name}' 
+                            $update_post_query ="UPDATE clients_tb SET client_logo = '{$uploaded_image}', client_name = '{$client_name}' 
                              WHERE id = '{$id}'";
                         }
 
@@ -106,16 +109,7 @@
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="../assets/script/core.js"></script>
     <script src="../assets/script/template.js"></script>
-    <script src="../assets/script/config.js"></script>
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-
-    <script>
-        CKEDITOR.replace('description-editor',{
-            enterMode: CKEDITOR.ENTER_BR,
-	        allowedContent: true,
-        });
-    </script>
 </body>
 
 </html>

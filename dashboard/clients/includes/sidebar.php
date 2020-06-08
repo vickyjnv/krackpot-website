@@ -22,11 +22,11 @@
           </a>
           <ul class="collapse navigation-submenu" id="portfolio">
             <li>
-              <a href="add-portfolio.php"><i class="fas fa-plus-circle fa-fw"></i> Add
+              <a href="../portfolio/add-portfolio.php"><i class="fas fa-plus-circle fa-fw"></i> Add
                 Portfolio</a>
             </li>
             <li>
-              <a href="view-portfolio.php" ><i class="fas fa-briefcase fa-fw"></i> View All
+              <a href="../portfolio/view-portfolio.php" ><i class="fas fa-briefcase fa-fw"></i> View All
                 Portfolios</a>
             </li>
           </ul>

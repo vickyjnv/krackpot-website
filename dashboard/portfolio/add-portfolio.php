@@ -82,12 +82,13 @@
                         //Image Function
                         $image_function = explode('.',$brand_logo);
                         $file_ext = strtolower(end($image_function));
-                        $random_image_name  = substr(md5(time()),0,20).'.'.$file_ext;
-                        $uploaded_image = "../uploads/".$random_image_name;
+                        $random_image_name  = substr(md5(time()),0,30).'.'.$file_ext;
+                        $location="uploads/";
+                        $uploaded_image = $location.$random_image_name;
                         move_uploaded_file($brand_logo_temp,$uploaded_image);
 
                         //Insert Query (For Details Table)
-                        $add_query = "INSERT INTO krackpottb_demo_1 (brand_logo,brand_description,brand_work_header,
+                        $add_query = "INSERT INTO krackpot_tb (brand_logo,brand_description,brand_work_header,
                         brand_work_description,date_of_upload) VALUES ('{$uploaded_image}','{$brand_description}',
                         '{$brand_work_header}','{$brand_work_description}',now())";
 
@@ -108,8 +109,6 @@
     </div>
 </div>       
 
-    <script src="https://code.jquery.com/jquery-3.5.0.js"
-        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="../assets/script/core.js"></script>
     <script src="../assets/script/template.js"></script>
     <script src="https://kit.fontawesome.com/7fdc918442.js" crossorigin="anonymous"></script>
