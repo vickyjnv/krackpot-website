@@ -28,7 +28,7 @@
     <?php include('../includes/header.php'); ?>
     <!-- partial -->
     <div class="page-body">
-        <?php include('../includes/sidebar.php'); ?>
+        <?php include('includes/sidebar.php'); ?>
         <!-- partial -->
         <div class="page-content-wrapper">
             <div class="page-content-wrapper-inner">

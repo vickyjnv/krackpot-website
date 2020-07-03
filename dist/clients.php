@@ -18,112 +18,33 @@
 
 <body>
     <div class="section clients-section">
-        <nav class="navbar navbar-clients fixed-top">
+        <nav class="navbar navbar-clients-gray fixed-top">
             <?php include('includes/sidebar.php'); ?>
         </nav>
-        <div id="section-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-            <?php include('includes/carousel-indicators.php'); ?>
-            <div class="carousel-inner">
-                <div class="carousel-item container active">
-                    <div class="row section-info section-info-viewport">
-                        <div class="offset-1 col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 section-info-main">
-                            <div class="section-info-main  animated fadeInLeft">
-                                <h1 class="section-info-text _title">
-                                    Design & Digital<br>
-                                    Agency providing
-                                </h1>
-                                <h3 class="section-info-text  _subtitle">
-                                    end to end creative &<br>
-                                    marketing solutions
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 offset-1 section-mobile-hide section-info-main">
-                            <div class="animated fadeInRight ">
-                                <img src="images/clients.svg" alt="clients" class="section-info-img">
-                                <h1 class="section-info-head">Clients</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row section-info">
-                        <div class="col-12 container-fluid section-info-viewport section-info-clients ">
-                            <div class="animated fadeInRight">
-                                <div class="clients-row">
-                                <?php 
-                                    $display_query = "SELECT * FROM clients_tb";
-                                    $display_query_result = mysqli_query($connect,$display_query);
+                    <div class="animate__animated animate__fadeInLeft">
+                        <div class="section-info">
+                            <div class="section-info-viewport section-info-clients ">
+                                <div class="animated fadeInRight">
+                                    <div class="clients-row">
+                                    <?php 
+                                        $display_query = "SELECT * FROM clients_tb";
+                                        $display_query_result = mysqli_query($connect,$display_query);
 
-                                    while($row = mysqli_fetch_array($display_query_result)){
-                                        $client_logo = $row['client_logo'];
-                                        $client_name = $row['client_name'];
-                                        ?>
-                                        <div class="clients-row-inner-columns">
-                                            <img src="../dashboard/clients/<?php echo $client_logo; ?>" alt="" class="clients-img">
-                                        </div>
-                                    <?php } ?>
-                                    <!-- <div class="clients-row-inner-columns">
-                                        <img src="images/clients/01.png" alt="" class="clients-img">
+                                        while($row = mysqli_fetch_array($display_query_result)){
+                                            $client_logo = $row['client_logo'];
+                                            $client_name = $row['client_name'];
+                                            ?>
+                                            <div class="clients-row-inner-columns">
+                                                <img src="../dashboard/clients/<?php echo $client_logo; ?>" alt="" class="clients-img">
+                                            </div>
+                                        <?php } ?>
+                                    
                                     </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/02.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/03.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/04.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/05.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/06.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/07.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/08.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/09.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/10.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/11.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/12.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/13.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/14.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/15.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/16.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/17.png" alt="" class="clients-img">
-                                    </div>
-                                    <div class="clients-row-inner-columns">
-                                        <img src="images/clients/18.png" alt="" class="clients-img">
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php include('includes/carousel-controls.php'); ?>
         </div>
     </div>
     <?php include('includes/footer.php'); ?>

@@ -73,16 +73,16 @@
                                                 <?php }
                                                  
                                                     /*Videos */
-                                                    $video = $data['video'];
+                                                    /* $video = $data['video'];
                                                     $video_2 = $data['video_2'];
-                                                    $video_3 = $data['video_3'];
+                                                    $video_3 = $data['video_3']; */
                                                 ?>
-                                                <div class="iframe-container">
+                                                <!--<div class="iframe-container">
                                                 </div>
                                                 <div class="iframe-container">
                                                 </div>
                                                 <div class="iframe-container">
-                                                </div>
+                                                </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <span class="next-text">Previous</span>
                                 </a>
                                 <div class="back-to-portfolio">
-                                    <a href="portfolio.php" class="back-to-portfolio-btn">back to portfolio</a>
+                                    <a href="portfolio.php" class="back-to-portfolio-btn">Back to Portfolio</a>
                                 </div>
                             </div>
                         </div>
@@ -158,6 +158,7 @@
 
         $("#clients-slider").slick("unslick");
     </script>
+
 </body>
 
 </html>

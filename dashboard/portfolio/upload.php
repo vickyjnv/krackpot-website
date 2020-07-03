@@ -43,16 +43,46 @@
                                     multiple>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="local-video-one">Local Video One</label>
+                                    <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Video">
+                                        <input name="local-video-one" type="file" class="file-upload-field" id="local-video-one">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="local-video-two">Local Video Two</label>
+                                    <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Video">
+                                        <input name="local-video-two" type="file" class="file-upload-field" id="local-video-two">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="local-video-three">Local Video Three</label>
+                                    <div class="file-upload-wrapper" data-text="Drag & Drop Or Click To Upload Video">
+                                        <input name="local-video-three" type="file" class="file-upload-field" id="local-video-three">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="pinline"><span>Or Upload Youtube Video</span></h2>
+
                         <div class="form-group">
-                            <label for="yt-link"> Youtube Video Link (One)</label>
+                            <label for="yt-link">Video Link</label>
                             <input type="text" name="brand-yt-link" id="yt-link" class="form-control">
                         </div>
                          <div class="form-group">
-                            <label for="yt-link"> Youtube Video Link (Two)</label>
+                            <label for="yt-link">Video Link</label>
                             <input type="text" name="brand-yt-link_2" id="yt-link_2" class="form-control">
                         </div>
                          <div class="form-group">
-                            <label for="yt-link"> Youtube Video Link (Three)</label>
+                            <label for="yt-link">Video Link</label>
                             <input type="text" name="brand-yt-link_3" id="yt-link_3" class="form-control">
                         </div>
                         <div class="button">

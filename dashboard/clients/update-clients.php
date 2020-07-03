@@ -16,7 +16,7 @@
 <body class="header-fixed">
    <?php include('../includes/header.php'); ?>
     <div class="page-body">
-        <?php include('../includes/sidebar.php'); ?>
+        <?php include('includes/sidebar.php'); ?>
         <div class="page-content-wrapper">
             <div class="page-content-wrapper-inner">
                 <div class="content-viewport">

@@ -1690,3 +1690,46 @@ td {
   margin: 8px 0 0 0 !important;
   padding: 0 !important;
 }
+
+h2.pinline {
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  font-size: 1.3rem;
+  font-weight: 100;
+  margin: 80px 0 30px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #696969;
+}
+
+h2.pinline span {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+h2.pinline span:before,
+h2.pinline span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: #d3d3d3;
+  width: 99999px;
+}
+
+h2.pinline span:before {
+  left: 100%;
+  margin-left: 20px;
+}
+
+h2.pinline span:after {
+  right: 100%;
+  margin-right: 20px;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}

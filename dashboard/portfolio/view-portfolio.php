@@ -40,8 +40,9 @@
                         <th>Brand Description</th>
                         <th>Brand Work </th>
                         <th>Brand Work Description</th>
-                        <th>Brand Uploaded Images</th>
-                        <th>Brand Uploaded Videos</th>
+                        <th>Brand Images</th>
+                        <th>Brand Youtube Videos</th>
+                        <th>Brand Local Videos</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -82,6 +83,16 @@
                             echo $video_3; 
                             }
                         ?>
+                    </td>
+
+                    <td>
+                    <?php   
+                        $video_one = $resultsn['local_video_one'];
+                        $local_video_two = $resultsn['local_video_two'];
+                        $local_video_three = $resultsn['local_video_three']; 
+                        echo "<video width='100%' controls><source src='video_uploads/".$video_one."'></video>";
+                    ?>
+                    
                     </td>
                     <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-block btn-common">Edit Information</a>
                     <hr>

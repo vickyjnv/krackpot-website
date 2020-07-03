@@ -17,42 +17,59 @@
 <body>
     <div class="section contact-section">
         <nav class="navbar navbar-contact">
-            <?php include('includes/sidebar.php') ?>
-        </nav>
+        <?php include('includes/sidebar.php'); ?>
 
-        <div class="container">
-            <div class="row section-info">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 section-info-main">
-                    <div class="section-info-main animated fadeInLeft contact-section-main">
-                        <div class="contact-details">
-                            <h1 class="section-info-text _name">
-                                Susmita Basu Nayak
-                            </h1>
-                            <h1 class="section-info-text section-info-text-sub _bio">Founder & Director - Operations
-                            </h1>
-                            <h1 class="section-info-text section-info-text-sub _email">susmita@krackpot.co.in</h1>
-                            <h1 class="section-info-text section-info-text-sub  _contact">+91 83695 28385</h1>
-                        </div>
-                        <div class="contact-details">
-                            <h1 class=" section-info-text  _name">
-                                Aditya Nayak
-                            </h1>
-                            <h1 class="section-info-text section-info-text-sub _bio">Director - Creative</h1>
-                            <h1 class="section-info-text section-info-text-sub _email">aditya@krackpot.co.in</h1>
-                            <h1 class="section-info-text section-info-text-sub _contact">+91 90040 39911</h1>
+        </nav>
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <div id="section-carousel" class="carousel slide" data-ride="carousel"
+                                data-interval="false">
+                                <?php include('includes/carousel-indicators.php'); ?>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active animate__animated animate__fadeInLeft animate__delay-1s">
+                                        <div class="row section-info ">
+                                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 section-info-main">
+                                                <h1 class="sub-text">If it rings its good</h1>
+                                                <h1 class="main-text">If it drops in mailbox,<br>better</h1>
+                                            </div>
+                                            <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12 section-mobile-hide section-info-main">
+                                                <img src="images/contact.svg" alt="contact" class="section-info-img">
+                                                <h1 class="section-info-head">Contact</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item animate__animated animate__fadeInRight animate__delay-1s">
+                                        <div class="section-info">
+                                            <div class="grid-section">
+                                                <div class="col-grid-one second-section section-info-main">
+                                                    <h1 class="contact-main-text">Susmita Basu Nayak</h1>
+                                                    <h1 class="contact-sub-text">Founder & Director - Operations</h1>
+                                                    <h1 class="contact-sub-text">susmita@krackpot.co.in</h1>
+                                                    <h1 class="contact-sub-text">+91 83695 28385</h1>
+                                                </div>
+                                                <div class="col-grid-two second-section section-info-main section-mobile-hide">
+                                                </div>
+                                                <div class="col-grid-three second-section section-info-main">
+                                                        <h1 class="contact-main-text">Aditya Nayak</h1>
+                                                        <h1 class="contact-sub-text">Director - Creative</h1>
+                                                        <h1 class="contact-sub-text">aditya@krackpot.co.in</h1>
+                                                        <h1 class="contact-sub-text">+91 90040 39911</h1>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               <?php include('includes/carousel-controls.php'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="section-info-main col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 section-mobile-hide">
-                    <div class="animated fadeInRight ">
-                        <img src="images/contact.svg" alt="contact" class="section-info-img">
-                        <h1 class="section-info-head">Contact</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-<?php include('includes/footer.php') ?>
+       <?php include('includes/footer.php'); ?>
+
 </body>
 
 </html>

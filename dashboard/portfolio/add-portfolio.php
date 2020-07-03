@@ -97,7 +97,7 @@
                         if(!$add_query_result){
                             die("Something Went Wrong".mysqli_error($connect));
                         }else{
-                            echo "<script type='text/javascript'> window.location='upload.php'; </script>";
+                            echo "<script type='text/javascript'> window.location='upload-test.php'; </script>";
                         }
 
                     }

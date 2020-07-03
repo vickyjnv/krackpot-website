@@ -19,34 +19,25 @@
         <nav class="navbar navbar-services">
         <?php include('includes/sidebar.php'); ?>
         </nav>
-        <div id="section-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div id="section-carousel" class="carousel slide" data-ride="carousel"
+                    data-interval="false">
                     <?php include('includes/carousel-indicators.php'); ?>
-
-            <div class="carousel-inner">
-                <div class="carousel-item container active">
-                    <div class="row section-info">
-                        <div class="offset-1 col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 section-info-main">
-                            <div class="animated fadeInLeft">
-                                <h1 class="section-info-text  _title">
-                                    Design & Digital<br>
-                                    Agency providing
-                                </h1>
-                                <h3 class="section-info-text  _subtitle">
-                                    end to end creative &<br>
-                                    marketing solutions
-                                </h3>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active animate__animated animate__fadeInLeft animate__delay-1s">
+                            <div class="container">
+                            <div class="row section-info">
+                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 section-info-main">
+                                    <h1 class="sub-text">There is a story and a moral,</h1>
+                                    <h1 class="main-text">and then there is a<br>Krackpot storyteller!</h1>
+                                </div>
+                                <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12 section-mobile-hide section-info-main">
+                                    <img src="images/services.svg" alt="about" class="section-info-img">
+                                    <h1 class="section-info-head">Services</h1>
+                                </div>
+                            </div>
                             </div>
                         </div>
-                        <div
-                            class="offset-1 col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 section-mobile-hide section-info-main">
-                            <div class="animated fadeInRight ">
-                                <img src="images/services.svg" alt="about" class="section-info-img">
-                                <h1 class="section-info-head">Services</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
+                    <div class="carousel-item">
                     <div class="second-section animated fadeInRight">
                         <div class="services-container">
                             <div id="one" class="section">
@@ -58,7 +49,7 @@
                                 </div>
                                 <ul class="section-list" id="list-one">
                                     <li>Website</li>
-                                    <li>UI/UX</li>
+                                    <li>UI/UX, Apps</li>
                                     <li>Web Banners</li>
                                     <li>Programmatic Banners</li>
                                     <li>Banners Adaptations</li>
@@ -79,7 +70,7 @@
 
                                 <ul class="section-list" id="list-two">
                                     <li>Website</li>
-                                    <li>UI/UX</li>
+                                    <li>UI/UX, Apps</li>
                                     <li>Web Banners</li>
                                     <li>Programmatic Banners</li>
                                     <li>Banners Adaptations</li>
@@ -142,7 +133,7 @@
                                     <li>Designing</li>
                                     <li>Animated Presentation</li>
                                     <li>VO Presentation</li>
-                                    <li>Audio Presentation</li>
+                                    <li>Audio Editing</li>
                                     <li>Infographic Video</li>
                                     <li>Presentations</li>
                                 </ul>
